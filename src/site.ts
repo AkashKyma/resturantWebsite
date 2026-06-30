@@ -2,7 +2,7 @@ import { menuItems } from '@/data/menu';
 
 export const restaurant = {
   name: 'Saffron Thali House',
-  tagline: 'Regional Indian plates, long tea pours, and a menu built for proper browsing.',
+  tagline: 'Regional Indian plates, long tea pours, and a billing workspace with seeded customer invoices.',
   address: '14 Spice Market Road, Bengaluru 560001',
   phone: '+91 80 5550 1482',
   email: 'hello@saffronthalihouse.in',
@@ -15,8 +15,8 @@ export const restaurant = {
   heroImage: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1600&q=80',
   stats: [
     { label: 'Menu Items', value: String(menuItems.length), detail: 'Expanded past 100 items with real Indian categories instead of filler content.' },
-    { label: 'Regional Sections', value: '4 Core', detail: 'Indian thali, South Indian, North Indian, and tea now lead the browsing experience.' },
-    { label: 'Quality Images', value: '30+', detail: 'Every section is backed by stronger imagery coverage so the food pages actually feel complete.' },
+    { label: 'Billing Customers', value: '12', detail: 'The new billing section includes seeded customer accounts ready for invoice creation.' },
+    { label: 'Invoice Templates', value: '4', detail: 'Modern, Classic, Minimal, and Bold templates are available when creating invoices.' },
     { label: 'Serving Style', value: 'All Day', detail: 'Breakfast dosas, lunch thalis, dinner curries, and evening chai under one roof.' },
   ],
   occasions: [
@@ -39,10 +39,10 @@ export const restaurant = {
       cta: 'Open the tea house',
     },
     {
-      title: 'North Indian comfort food',
-      description: 'Rich gravies, breads, kebabs, biryanis, and chaat with a dedicated route for dinner-focused browsing.',
-      href: '/north-indian',
-      cta: 'Browse North Indian',
+      title: 'Customer billing',
+      description: 'Seeded invoices, multiple customer profiles, and template-based invoice creation in one billing workspace.',
+      href: '/billing',
+      cta: 'Open billing',
     },
   ],
 };

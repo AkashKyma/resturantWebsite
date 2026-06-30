@@ -5,6 +5,7 @@ import { restaurant } from '@/src/site';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/menu', label: 'Menu' },
+  { href: '/billing', label: 'Billing' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/story', label: 'Story' },
   { href: '/events', label: 'Events' },
@@ -28,8 +29,8 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <Link href="/order" className="primary-button px-4 py-2 text-sm">
-          Order Now
+        <Link href="/billing" className="primary-button px-4 py-2 text-sm">
+          Open Billing
         </Link>
       </div>
     </header>

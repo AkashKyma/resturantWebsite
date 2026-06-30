@@ -39,8 +39,8 @@ export default function HomePage() {
           <div>
             <SectionIntro
               eyebrow="Browse deeper"
-              title="More pages, clearer regional paths, less generic restaurant-site energy."
-              description="Jump straight into grand thalis, breakfast-heavy South Indian plates, North Indian comfort food, or the tea house without hitting thin pages."
+              title="More pages, clearer regional paths, and now a billing workspace with real invoice data."
+              description="Jump straight into menu sections or open the billing area to review seeded customer invoices and create new template-based records."
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -48,6 +48,11 @@ export default function HomePage() {
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Browse</p>
               <h3 className="mt-3 text-2xl font-bold text-slate-950">Full menu</h3>
               <p className="mt-2 text-slate-600">See all menu items with category filtering, pricing, prep times, and visual coverage.</p>
+            </Link>
+            <Link href="/billing" className="card-surface p-5 transition hover:-translate-y-1">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Invoice</p>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">Billing section</h3>
+              <p className="mt-2 text-slate-600">Create invoices for various customers, switch templates, and browse 12 seeded invoice records.</p>
             </Link>
             <Link href="/thalis" className="card-surface p-5 transition hover:-translate-y-1">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Feast</p>

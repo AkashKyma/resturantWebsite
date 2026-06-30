@@ -1,5 +1,19 @@
 # Changelog
 
+## [AKA-87] Now Add Billing Section in Which various Customer invoice Are Present user Able to create A Invoice And Seed Atleast 10-20 invoice in it With various Template
+
+- Documented the billing-section release for automated PR handoff
+- Verified implementation commit presence: `feat(aka-87): implement Now Add Billing Section in Which various Customer`
+- Updated README with setup, local run steps, production build steps, billing coverage, and deliverable summary
+- Captured release notes for the new billing experience:
+  - **12 seeded invoices** across various customers
+  - **12 customer profiles** with billing metadata
+  - **4 invoice templates**: Modern, Classic, Minimal, and Bold
+  - interactive invoice creation with custom line items and live totals
+  - INR formatting and GST calculation support
+  - seeded invoice table, customer profile panel, template coverage summary, and template preview
+- Added implementation notes so deployment reviewers can quickly confirm architecture, scope, and release readiness
+
 ## [AKA-82] Its good But Feed data And create for indian
 
 - Documented the Indian restaurant content expansion for automated PR handoff
