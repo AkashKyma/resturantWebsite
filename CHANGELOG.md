@@ -1,5 +1,18 @@
 # Changelog
 
+## [AKA-83] Now Add Billing Section in Which various Customer invoice Are Present
+
+- Documented the billing section release for automated PR handoff
+- Verified implementation commit presence: `feat(aka-83): implement billing section for various customers`
+- Updated README with setup, local run steps, production build steps, route coverage, and deliverable summary for the billing experience
+- Captured release notes for the billing feature:
+  - dedicated `/billing` route
+  - seeded customer invoices with at least **10–20 invoices** present on load
+  - invoice creation flow for new customer invoices
+  - multiple invoice template options
+  - billing summary views for portfolio and follow-up visibility
+- Refreshed implementation notes so deployment reviewers can quickly confirm architecture, scope, and release readiness
+
 ## [AKA-82] Its good But Feed data And create for indian
 
 - Documented the Indian restaurant content expansion for automated PR handoff

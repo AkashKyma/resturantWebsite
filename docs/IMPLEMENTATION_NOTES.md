@@ -2,7 +2,7 @@
 
 ## Ticket
 
-- **AKA-82** — _its good But Feed data And create for indian_
+- **AKA-83** — _Now Add Billing Section in Which various Customer invoice Are Present user Able to create A Invoice And Seed Atleast 10-20 invoice in it With various Template_
 
 ## Scribe scope
 
@@ -12,133 +12,124 @@ No application source files were modified during the Scribe phase.
 
 ## Delivered implementation summary
 
-The implemented feature set turns the site into a more coherent Indian restaurant experience by expanding both the dataset and the page structure.
+The implemented feature set adds a customer billing workflow to the site so users can review seeded invoices and create new invoices from a dedicated interface.
 
 ### Core implementation themes
 
-- Large menu-feed expansion beyond the earlier baseline
-- Indian-first category modeling instead of generic restaurant buckets
-- Dedicated browse paths for high-intent sections
-- Stronger image coverage across all major menu areas
-- Homepage copy and site metadata updated to reflect the Indian positioning
+- Dedicated billing experience separated from the restaurant browsing flows
+- Seeded invoice data for multiple customers so the feature is immediately demoable
+- New invoice creation flow with editable line items
+- Multiple invoice template options for presentation variety
+- Billing summary visibility for pending follow-up and total portfolio value
 
-## Data architecture
+## Billing architecture
 
-Primary menu content lives in:
+Primary billing content lives in:
 
-- `data/menu.ts`
+- `data/invoices.ts`
 
-### Menu model
+Primary billing UI lives in:
 
-The dataset exports:
+- `app/billing/page.tsx`
+- `components/BillingExperience.tsx`
+- `components/InvoiceSummaryCard.tsx`
+- `components/InvoiceTemplates.tsx`
 
-- `MenuCategory`
-- `MenuItem`
-- `menuItems`
-- `categories`
-- `categoryDescriptions`
+## Invoice model
 
-### Current category set
+The billing dataset and UI expose behavior for:
 
-- `Indian Thali`
-- `South Indian`
-- `North Indian`
-- `Tea`
-- `Desserts`
-- `Drinks`
+- seeded invoice records
+- invoice totals calculation
+- invoice template selection
+- invoice status tracking
+- invoice line items with quantity and unit price
+- customer and company invoice metadata
 
-### Dataset behavior
+### Observed invoice behavior
 
-- Menu entries are assembled from category-specific row arrays
-- `buildItems(...)` converts structured tuples into normalized `MenuItem` objects
-- Images are assigned by category-specific image pools
-- The current dataset size is **130 items**
+- the billing page loads with seeded invoices for various customers
+- users can create a new invoice directly from the billing interface
+- line items are filtered before creation so blank descriptions and non-positive quantities are excluded
+- invoice IDs are generated in sequence for newly created invoices
+- billing summary cards surface pending follow-up counts and portfolio value
 
-## Page and route additions / refinements
+## Route and navigation impact
 
-### Homepage
+### Billing page
 
 File:
 
-- `app/page.tsx`
+- `app/billing/page.tsx`
 
 Behavior:
 
-- Surfaces featured Indian dishes
-- Highlights expanded menu depth and stronger imagery
-- Adds clearer browse cards for:
-  - full menu
-  - Indian thalis
-  - South Indian
-  - tea house
+- adds a dedicated `/billing` route
+- exposes invoice creation controls and seeded invoice browsing in one place
+- gives deployment reviewers a clear route to validate the new ticket scope
 
-### Dedicated Indian pages
+### Shared navigation impact
 
-Files:
+File:
 
-- `app/thalis/page.tsx`
-- `app/south-indian/page.tsx`
-- `app/tea-house/page.tsx`
+- `components/Navbar.tsx`
 
 Behavior:
 
-- `/thalis` focuses on signature and full thali selections
-- `/south-indian` emphasizes dosa, idli, appam, biryani, and tiffin depth
-- `/tea-house` separates chai / coffee browsing from dessert pairing
+- navigation was updated by implementation so the billing section is reachable from the primary site experience
 
-### Supporting browse pages
+## UI component impact
 
-Files:
+### Billing experience container
 
-- `app/gallery/page.tsx`
-- `app/story/page.tsx`
+File:
 
-Behavior:
-
-- `gallery` now showcases Indian category coverage instead of sparse filler
-- `story` aligns brand framing with the Indian refresh and fuller menu identity
-
-## Shared component impact
-
-Files touched by implementation:
-
-- `components/MenuBrowser.tsx`
-- `components/MenuSection.tsx`
+- `components/BillingExperience.tsx`
 
 Observed behavior:
 
-- Menu browsing supports category filtering with category counts
-- Category descriptions provide more context for each menu segment
-- Section rendering stays reusable across the new Indian-specific pages
+- manages invoice form state
+- supports adding editable line items
+- creates new invoice objects from cleaned form input
+- renders overview metrics and invoice lists
 
-## Site metadata impact
+### Invoice display
 
 File:
 
-- `src/site.ts`
+- `components/InvoiceSummaryCard.tsx`
 
-Behavior:
+Observed behavior:
 
-- Restaurant brand is positioned as **Saffron Thali House**
-- Stats and occasion cards now support the Indian-specific browse structure
-- Site copy now aligns with the larger menu, tea-house browsing, and thali-led positioning
+- renders individual invoice summaries for seeded and newly created invoices
+
+### Template presentation
+
+File:
+
+- `components/InvoiceTemplates.tsx`
+
+Observed behavior:
+
+- surfaces available invoice template options used by the billing workflow
 
 ## Release-readiness notes
 
 ### What appears ready
 
-- Menu dataset size exceeds the ticket minimum direction
-- Dedicated Indian browse pages are present
-- Image coverage is integrated into the data model
-- Homepage and supporting pages reflect the new IA and content direction
-- Documentation now matches the shipped scope
+- dedicated billing route is present
+- seeded invoice content satisfies the ticket direction for preloaded customer invoices
+- invoice creation is integrated into the UI flow
+- multiple templates are represented in the billing experience
+- documentation now matches the shipped scope
 
 ### What to verify in final review / deployment
 
-- Visual QA for remote image rendering in Next.js environments
-- Responsive layout checks on the new `/thalis`, `/south-indian`, and `/tea-house` pages
-- Sanity-check category totals on `/menu`
-- Confirm no stale copy remains referencing the older generic restaurant framing where not intended
+- confirm seeded invoice count remains within the requested 10–20 range
+- validate invoice creation with multiple line-item combinations
+- confirm summary totals update as expected when a new invoice is created
+- verify navbar access to `/billing` in the production build
+- confirm invoice cards and template previews remain responsive on smaller screens
 
 ## Files changed by Scribe
 
