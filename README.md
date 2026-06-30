@@ -1,15 +1,25 @@
-# Restaurant Website
+# Saffron Thali House
 
-A polished Next.js restaurant site for **Juniper Table** with a significantly expanded menu feed, higher-quality food imagery, and more complete browsing paths for guests.
+A polished Next.js restaurant site for **Saffron Thali House** with a significantly expanded Indian menu, stronger visual coverage, and dedicated browse paths for thalis, South Indian food, North Indian dishes, and tea-house offerings.
 
-## AKA-80 feature overview
+## AKA-82 feature overview
 
-This deliverable improves the original restaurant site by making the content feel fully stocked instead of thin:
+This deliverable takes the earlier “feed data” work and pushes it into a more complete Indian restaurant experience:
 
-- Expanded the menu feed to **100 total items** across starters, mains, desserts, and drinks
-- Added **high-quality image coverage** across the menu dataset so gallery and menu browsing feel visual and complete
-- Improved the landing page messaging to emphasize the fuller content experience
-- Added supporting discovery pages such as **Gallery**, **Story**, and **Events** to reduce dead ends and give the brand more depth
+- Expanded the menu feed to **130 total items**
+- Added category depth for:
+  - **Indian Thali**
+  - **South Indian**
+  - **North Indian**
+  - **Tea**
+  - **Desserts**
+  - **Drinks**
+- Added stronger image coverage across the menu dataset so galleries and menu browsing feel visually complete
+- Added dedicated landing paths for key Indian browsing intents:
+  - `/thalis`
+  - `/south-indian`
+  - `/tea-house`
+- Refined supporting browse pages such as **Gallery** and **Story** so the site feels less generic and more regionally focused
 - Preserved the core conversion flows for menu browsing, ordering, reservations, and contact
 
 ## Tech stack
@@ -40,14 +50,14 @@ npm run build
 npm run start
 ```
 
-## What was built for “its good But Feed data”
+## What was built for “its good But Feed data And create for indian”
 
-The ticket asked for a better content feed with at least 100 records, stronger images, and more pages. The implemented site now includes:
+The ticket asked for a stronger content feed, at least 100 more entries / fuller coverage, higher-quality images, more pages, and explicit Indian category depth. The implemented site now includes:
 
 ### Content and data
 
 - A local structured menu dataset in `data/menu.ts`
-- **100 menu entries** total
+- **130 menu entries** total
 - Per-item metadata including:
   - name
   - category
@@ -58,24 +68,38 @@ The ticket asked for a better content feed with at least 100 records, stronger i
   - calories
   - prep time
   - image URL
+- Category descriptions that support more meaningful menu filtering and browsing
+
+### Category coverage
+
+- **Indian Thali** — large-format platter meals with regional variety
+- **South Indian** — dosas, idlis, pongal, appams, biryanis, and tiffin dishes
+- **North Indian** — curries, breads, biryanis, tandoor items, and chaat-style dishes
+- **Tea** — chai, kahwa, filter coffee, herbal tea, and iced variants
+- **Desserts** — Indian sweets and puddings
+- **Drinks** — lassi, chaas, soda, sugarcane, and refreshers
 
 ### Page coverage
 
-- `/` — upgraded homepage with featured dishes, visual showcase, and route entry points
-- `/menu` — full menu browsing experience
-- `/gallery` — image-led food browsing
-- `/story` — restaurant brand and positioning page
-- `/events` — private events / gathering flow
+- `/` — upgraded homepage with featured dishes, stats, showcase content, and browse entry points
+- `/menu` — full menu browsing experience with category filtering
+- `/thalis` — dedicated Indian thali page
+- `/south-indian` — dedicated South Indian browse path
+- `/tea-house` — dedicated tea and sweets page
+- `/gallery` — image-led food browsing by Indian category
+- `/story` — brand and positioning page aligned to the Indian refresh
 - `/order` — ordering experience
 - `/reservations` — booking flow
 - `/contact` — contact and hours
 
 ### Experience improvements
 
-- Featured items are surfaced directly on the homepage
-- Gallery sections reuse the richer image-backed menu dataset
-- Navigation now points users into more complete browse paths instead of leaving the site feeling sparse
-- Restaurant stats and occasion blocks reinforce that the menu depth and page count have been expanded intentionally
+- Homepage messaging now clearly frames the site as an Indian restaurant with regional structure
+- Featured dishes are surfaced directly on the homepage
+- The menu browser supports category filtering with per-category counts and descriptions
+- Gallery sections reuse the richer image-backed menu dataset instead of relying on sparse filler content
+- Navigation paths now better support actual customer intent: thali browsing, South Indian breakfast/tiffin exploration, curry-heavy North Indian browsing through the main menu, and tea-time discovery
+- Restaurant metadata and stats reinforce the expanded menu depth and Indian positioning
 
 ## Repository notes
 
