@@ -82,6 +82,14 @@ export function BillingDashboard() {
     [filteredInvoices, invoices, selectedInvoiceId],
   );
 
+  const createButtonDisabled =
+    !formState.customerName.trim() ||
+    !formState.company.trim() ||
+    !formState.email.trim() ||
+    !formState.issueDate ||
+    !formState.dueDate ||
+    formState.items.every((item) => !item.description.trim() || item.quantity <= 0 || item.rate <= 0);
+
   const metrics = useMemo(() => {
     const totalRevenue = invoices.reduce((sum, invoice) => sum + getInvoiceTotal(invoice), 0);
     const paidRevenue = invoices.filter((invoice) => invoice.status === 'Paid').reduce((sum, invoice) => sum + getInvoiceTotal(invoice), 0);
@@ -137,8 +145,20 @@ export function BillingDashboard() {
     event.preventDefault();
 
     const validItems = formState.items.filter((item) => item.description.trim() && item.quantity > 0 && item.rate > 0);
-    if (!formState.customerName.trim() || !formState.company.trim() || !formState.email.trim() || validItems.length === 0) {
-      setSubmitMessage('Add customer details and at least one billable line item before saving.');
+    if (
+      !formState.customerName.trim() ||
+      !formState.company.trim() ||
+      !formState.email.trim() ||
+      !formState.issueDate ||
+      !formState.dueDate ||
+      validItems.length === 0
+    ) {
+      setSubmitMessage('Add customer details, dates, and at least one billable line item before saving.');
+      return;
+    }
+
+    if (new Date(formState.dueDate) < new Date(formState.issueDate)) {
+      setSubmitMessage('Due date must be the same as or later than the issue date.');
       return;
     }
 
@@ -392,7 +412,7 @@ export function BillingDashboard() {
               <span>{formatCurrency(formState.items.reduce((sum, item) => sum + item.quantity * item.rate, 0))}</span>
             </div>
             <div className="mt-4 flex flex-wrap gap-3">
-              <button type="submit" className="primary-button">
+              <button type="submit" className="primary-button disabled:cursor-not-allowed disabled:opacity-60" disabled={createButtonDisabled}>
                 Save invoice
               </button>
               <button type="button" className="secondary-button border-white/20 bg-white/10 text-white hover:border-white hover:text-white" onClick={resetForm}>
