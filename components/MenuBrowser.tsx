@@ -25,10 +25,10 @@ export function MenuBrowser() {
         return acc;
       },
       {
-        Starters: 0,
-        Mains: 0,
-        Desserts: 0,
-        Drinks: 0,
+        'Indian Thali': 0,
+        'South Indian': 0,
+        'North Indian': 0,
+        'Tea & Drinks': 0,
       }
     );
   }, []);
@@ -37,8 +37,8 @@ export function MenuBrowser() {
     <main className="section-shell space-y-10">
       <SectionIntro
         eyebrow="Menu"
-        title="Browse the full menu. Filter first, commit emotionally after."
-        description="From small plates to dessert, everything is organized by category so customers can scan quickly and order with confidence."
+        title="Browse the full Indian menu without digging through filler."
+        description="Filter across thalis, South Indian, North Indian, and tea to get to the right kind of meal fast."
       />
 
       <div className="card-surface p-6">

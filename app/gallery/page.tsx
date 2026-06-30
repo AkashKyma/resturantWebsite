@@ -7,11 +7,12 @@ export default function GalleryPage() {
     <main className="section-shell space-y-10">
       <SectionIntro
         eyebrow="Gallery"
-        title="A fuller visual menu with actual browsing depth."
-        description="Every category now has real image support, so the gallery page can do more than recycle the same few cards."
+        title="Regional Indian plates with enough visual range to feel alive."
+        description="The gallery now pulls from thalis, dosa service, curries, and tea instead of repeating a tiny sample set."
       />
       <ImageShowcase items={menuItems.slice(0, 12)} />
-      <ImageShowcase items={menuItems.slice(24, 32)} />
+      <ImageShowcase items={menuItems.slice(24, 36)} />
+      <ImageShowcase items={menuItems.slice(72, 84)} />
     </main>
   );
 }
