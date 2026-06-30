@@ -16,7 +16,7 @@ export const restaurant = {
   stats: [
     { label: 'Menu Items', value: String(menuItems.length), detail: 'Expanded past 100 items with real Indian categories instead of filler content.' },
     { label: 'Regional Sections', value: '4 Core', detail: 'Indian thali, South Indian, North Indian, and tea now lead the browsing experience.' },
-    { label: 'Quality Images', value: '120+', detail: 'Every section is backed by stronger imagery so the food pages actually feel complete.' },
+    { label: 'Quality Images', value: '30+', detail: 'Every section is backed by stronger imagery coverage so the food pages actually feel complete.' },
     { label: 'Serving Style', value: 'All Day', detail: 'Breakfast dosas, lunch thalis, dinner curries, and evening chai under one roof.' },
   ],
   occasions: [
@@ -37,6 +37,12 @@ export const restaurant = {
       description: 'Tea flights, snacks, and desserts for casual meetups, family catch-ups, and late conversations.',
       href: '/tea-house',
       cta: 'Open the tea house',
+    },
+    {
+      title: 'North Indian comfort food',
+      description: 'Rich gravies, breads, kebabs, biryanis, and chaat with a dedicated route for dinner-focused browsing.',
+      href: '/north-indian',
+      cta: 'Browse North Indian',
     },
   ],
 };

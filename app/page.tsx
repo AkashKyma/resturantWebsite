@@ -59,6 +59,11 @@ export default function HomePage() {
               <h3 className="mt-3 text-2xl font-bold text-slate-950">South Indian</h3>
               <p className="mt-2 text-slate-600">Dosas, idlis, appams, biryanis, coffee, and tiffin-style favorites with dedicated browsing.</p>
             </Link>
+            <Link href="/north-indian" className="card-surface p-5 transition hover:-translate-y-1">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Comfort</p>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">North Indian</h3>
+              <p className="mt-2 text-slate-600">Butter chicken, paneer gravies, breads, chaat, and biryanis with a proper dedicated route.</p>
+            </Link>
             <Link href="/tea-house" className="card-surface p-5 transition hover:-translate-y-1">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Sip</p>
               <h3 className="mt-3 text-2xl font-bold text-slate-950">Tea house</h3>
