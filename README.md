@@ -1,26 +1,29 @@
 # Saffron Thali House
 
-A polished Next.js restaurant site for **Saffron Thali House** with a significantly expanded Indian menu, stronger visual coverage, and dedicated browse paths for thalis, South Indian food, North Indian dishes, and tea-house offerings.
+A polished Next.js restaurant site for **Saffron Thali House** with menu browsing, Indian cuisine landing pages, and a dedicated billing experience for managing customer invoices.
 
-## AKA-82 feature overview
+## AKA-84 feature overview
 
-This deliverable takes the earlier “feed data” work and pushes it into a more complete Indian restaurant experience:
+This deliverable adds a **Billing** section where various customer invoices are already present and new invoices can be created from the UI.
 
-- Expanded the menu feed to **130 total items**
-- Added category depth for:
-  - **Indian Thali**
-  - **South Indian**
-  - **North Indian**
-  - **Tea**
-  - **Desserts**
-  - **Drinks**
-- Added stronger image coverage across the menu dataset so galleries and menu browsing feel visually complete
-- Added dedicated landing paths for key Indian browsing intents:
-  - `/thalis`
-  - `/south-indian`
-  - `/tea-house`
-- Refined supporting browse pages such as **Gallery** and **Story** so the site feels less generic and more regionally focused
-- Preserved the core conversion flows for menu browsing, ordering, reservations, and contact
+### What was built
+
+- Added a dedicated billing route at `/billing`
+- Seeded the billing experience with **12 customer invoices** spanning multiple invoice states
+- Added support for **4 invoice templates**:
+  - `Classic`
+  - `Modern`
+  - `Minimal`
+  - `Bold`
+- Added invoice status coverage for:
+  - `Paid`
+  - `Pending`
+  - `Overdue`
+  - `Draft`
+- Added a create-invoice form so users can add a new invoice directly from the billing dashboard
+- Added filtering by **status** and **template**
+- Added invoice detail viewing with totals, notes, customer info, and line items
+- Added billing summary metrics such as total billed, collected revenue, overdue count, and seeded invoice count
 
 ## Tech stack
 
@@ -50,59 +53,67 @@ npm run build
 npm run start
 ```
 
-## What was built for “its good But Feed data And create for indian”
+## Billing section details
 
-The ticket asked for a stronger content feed, at least 100 more entries / fuller coverage, higher-quality images, more pages, and explicit Indian category depth. The implemented site now includes:
+The billing experience is designed to satisfy the ticket requirement: **“Now Add Billing Section in Which various Customer invoice Are Present user Able to create A Invoice And Seed Atleast 10-20 invoice in it With various Template.”**
 
-### Content and data
+### Seeded data
 
-- A local structured menu dataset in `data/menu.ts`
-- **130 menu entries** total
-- Per-item metadata including:
-  - name
-  - category
-  - price
-  - description
-  - featured flags
-  - spicy / vegetarian flags
-  - calories
-  - prep time
-  - image URL
-- Category descriptions that support more meaningful menu filtering and browsing
+The app includes a seeded invoice dataset in `data/invoices.ts` with:
 
-### Category coverage
+- **12 invoices** total
+- Multiple customer records and companies
+- Structured line items per invoice
+- INR currency formatting
+- Different due dates and issue dates
+- Template variety across the seeded set
+- Status variety across the seeded set
 
-- **Indian Thali** — large-format platter meals with regional variety
-- **South Indian** — dosas, idlis, pongal, appams, biryanis, and tiffin dishes
-- **North Indian** — curries, breads, biryanis, tandoor items, and chaat-style dishes
-- **Tea** — chai, kahwa, filter coffee, herbal tea, and iced variants
-- **Desserts** — Indian sweets and puddings
-- **Drinks** — lassi, chaas, soda, sugarcane, and refreshers
+### Billing capabilities
 
-### Page coverage
+At `/billing`, users can:
 
-- `/` — upgraded homepage with featured dishes, stats, showcase content, and browse entry points
-- `/menu` — full menu browsing experience with category filtering
-- `/thalis` — dedicated Indian thali page
-- `/south-indian` — dedicated South Indian browse path
-- `/tea-house` — dedicated tea and sweets page
-- `/gallery` — image-led food browsing by Indian category
-- `/story` — brand and positioning page aligned to the Indian refresh
-- `/order` — ordering experience
-- `/reservations` — booking flow
-- `/contact` — contact and hours
+- browse the invoice library
+- filter invoices by status
+- filter invoices by template
+- inspect invoice totals and customer notes
+- review customer company and contact information
+- create a new invoice with:
+  - customer name
+  - company
+  - email
+  - template
+  - status
+  - issue date
+  - due date
+  - notes
+  - multiple line items
 
-### Experience improvements
+### Validation behavior
 
-- Homepage messaging now clearly frames the site as an Indian restaurant with regional structure
-- Featured dishes are surfaced directly on the homepage
-- The menu browser supports category filtering with per-category counts and descriptions
-- Gallery sections reuse the richer image-backed menu dataset instead of relying on sparse filler content
-- Navigation paths now better support actual customer intent: thali browsing, South Indian breakfast/tiffin exploration, curry-heavy North Indian browsing through the main menu, and tea-time discovery
-- Restaurant metadata and stats reinforce the expanded menu depth and Indian positioning
+The create-invoice flow includes UI validation for:
+
+- required customer details
+- required dates
+- at least one valid billable line item
+- due date not earlier than issue date
+
+## Route coverage
+
+- `/` — homepage
+- `/menu` — restaurant menu browsing
+- `/thalis` — thali browse page
+- `/south-indian` — South Indian menu page
+- `/tea-house` — tea and sweets page
+- `/gallery` — image-led food gallery
+- `/story` — restaurant story page
+- `/order` — ordering flow
+- `/reservations` — booking page
+- `/contact` — contact page
+- `/billing` — customer invoice dashboard and invoice creation flow
 
 ## Repository notes
 
 - Documentation for this ticket is captured in `CHANGELOG.md`
-- Delivery and handoff notes live in `docs/IMPLEMENTATION_NOTES.md`
+- Delivery and release notes live in `docs/IMPLEMENTATION_NOTES.md`
 - This Scribe phase intentionally avoids source-code changes and focuses on release-ready documentation only
