@@ -5,6 +5,9 @@ import { restaurant } from '@/src/site';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/menu', label: 'Menu' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/story', label: 'Story' },
+  { href: '/events', label: 'Events' },
   { href: '/order', label: 'Order' },
   { href: '/reservations', label: 'Reservations' },
   { href: '/contact', label: 'Contact' },
