@@ -1,5 +1,17 @@
 # Changelog
 
+## [AKA-82] Its good But Feed data And create for indian
+
+- Documented the Indian restaurant content expansion for automated PR handoff
+- Verified implementation commit presence: `feat(aka-82): implement its good But Feed data And create for indian`
+- Updated README with setup, local run steps, production build steps, route coverage, and deliverable summary
+- Captured release notes for the richer Indian menu feed:
+  - **130 total menu items**
+  - stronger image coverage across the dataset
+  - explicit category structure for **Indian Thali**, **South Indian**, **North Indian**, **Tea**, **Desserts**, and **Drinks**
+  - dedicated browse pages for `/thalis`, `/south-indian`, and `/tea-house`
+- Added implementation notes so deployment reviewers can quickly confirm architecture, scope, and release readiness
+
 ## [AKA-80] Its good But Feed data
 
 - Documented the expanded restaurant content release for automated PR handoff

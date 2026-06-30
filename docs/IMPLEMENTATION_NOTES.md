@@ -1,153 +1,157 @@
-# AKA-80 Implementation Notes
+# Implementation Notes
 
-## Scope
+## Ticket
 
-This document summarizes the implemented architecture and release handoff context for ticket **AKA-80 — "its good But Feed data"**.
+- **AKA-82** — _its good But Feed data And create for indian_
 
-The Scribe phase covered documentation only. No application source files were changed here.
+## Scribe scope
 
-## Release summary
+This handoff covers **documentation and release preparation only**.
 
-The current build presents a more complete restaurant browsing experience centered on a substantially improved content feed.
+No application source files were modified during the Scribe phase.
 
-Key release outcomes:
+## Delivered implementation summary
 
-- Menu dataset expanded to **100 items**
-- All menu categories now include **high-quality image-backed entries**
-- The homepage messaging and browse flow were updated to reflect the fuller dataset
-- Additional supporting pages give the site more depth beyond the core transactional paths
+The implemented feature set turns the site into a more coherent Indian restaurant experience by expanding both the dataset and the page structure.
 
-## Implemented routes
+### Core implementation themes
 
-The repository now includes the following user-facing routes:
+- Large menu-feed expansion beyond the earlier baseline
+- Indian-first category modeling instead of generic restaurant buckets
+- Dedicated browse paths for high-intent sections
+- Stronger image coverage across all major menu areas
+- Homepage copy and site metadata updated to reflect the Indian positioning
 
-- `/`
-- `/menu`
-- `/gallery`
-- `/story`
-- `/events`
-- `/order`
-- `/reservations`
-- `/contact`
+## Data architecture
 
-## Architecture overview
+Primary menu content lives in:
 
-### App routing
+- `data/menu.ts`
 
-Route files under `app/` provide the main page entry points:
+### Menu model
 
-- `app/page.tsx` — homepage with hero, featured dishes, showcase imagery, occasion CTA blocks, and route cards
-- `app/menu/page.tsx` — full menu browsing experience
-- `app/gallery/page.tsx` — image-forward gallery sections sourced from the menu feed
-- `app/story/page.tsx` — restaurant brand story and positioning content
-- `app/events/page.tsx` — event / gathering page
-- `app/order/page.tsx` — ordering experience shell
-- `app/reservations/page.tsx` — reservation page
-- `app/contact/page.tsx` — contact and hours page
+The dataset exports:
 
-### Shared components
+- `MenuCategory`
+- `MenuItem`
+- `menuItems`
+- `categories`
+- `categoryDescriptions`
 
-The `components/` directory contains reusable UI units that support both content browsing and conversion flows:
+### Current category set
 
-- `Navbar` — site-wide navigation
-- `HeroSection` — homepage hero content
-- `SectionIntro` — reusable section heading block
-- `StatsStrip` — quick metrics and positioning highlights
-- `MenuCard` — item presentation for featured and browse views
-- `ImageShowcase` — visual browsing sections backed by menu item imagery
-- `OccasionGrid` — audience / use-case navigation cards
-- `CategoryFilter` — menu category switching UI
-- `MenuBrowser` — client-side filtered menu experience
-- `Cart` — cart summary and quantity controls
-- `OrderForm` — pickup / customer details form
-- `OrderExperience` — menu + cart + form ordering flow
-- `ReservationForm` — booking request form
+- `Indian Thali`
+- `South Indian`
+- `North Indian`
+- `Tea`
+- `Desserts`
+- `Drinks`
 
-## Data model
+### Dataset behavior
 
-The app uses local static content, which keeps the build portable and easy to review.
+- Menu entries are assembled from category-specific row arrays
+- `buildItems(...)` converts structured tuples into normalized `MenuItem` objects
+- Images are assigned by category-specific image pools
+- The current dataset size is **130 items**
 
-### Menu data
+## Page and route additions / refinements
 
-`data/menu.ts` defines the primary feed.
+### Homepage
 
-Current shape includes:
+File:
 
-- categories: Starters, Mains, Desserts, Drinks
-- item count: **100 total**
-- fields per item:
-  - `id`
-  - `name`
-  - `category`
-  - `price`
-  - `description`
-  - `featured`
-  - `spicy`
-  - `vegetarian`
-  - `image`
-  - `calories`
-  - `prepTime`
+- `app/page.tsx`
 
-The feed is generated from grouped category arrays plus reusable image sets, which keeps the dataset broad without fragmenting the content model.
+Behavior:
 
-### Site metadata
+- Surfaces featured Indian dishes
+- Highlights expanded menu depth and stronger imagery
+- Adds clearer browse cards for:
+  - full menu
+  - Indian thalis
+  - South Indian
+  - tea house
 
-`src/site.ts` defines shared brand metadata such as:
+### Dedicated Indian pages
 
-- restaurant name and tagline
-- address, phone, and email
-- operating hours
-- hero image
-- homepage stats
-- occasion / CTA blocks
+Files:
 
-## Functional mapping to ticket intent
+- `app/thalis/page.tsx`
+- `app/south-indian/page.tsx`
+- `app/tea-house/page.tsx`
 
-The ticket direction was: improve the feed, raise image quality, reach at least 100 entries, add more pages, and generally make the site feel more complete.
+Behavior:
 
-### Feed expansion
+- `/thalis` focuses on signature and full thali selections
+- `/south-indian` emphasizes dosa, idli, appam, biryani, and tiffin depth
+- `/tea-house` separates chai / coffee browsing from dessert pairing
 
-- The menu now contains **100 entries** total
-- The homepage explicitly promotes the expanded dataset
-- The stats strip reflects the increased menu volume
+### Supporting browse pages
 
-### Better image support
+Files:
 
-- Each category maps to curated external food/drink imagery
-- Gallery content now has enough variation to support repeated showcases without feeling empty
-- Menu cards and image-led sections both benefit from the richer media layer
+- `app/gallery/page.tsx`
+- `app/story/page.tsx`
 
-### More pages
+Behavior:
 
-- `gallery` provides visual browsing depth
-- `story` adds brand voice and positioning
-- `events` supports group dining / private event intent
-- Existing order, reservation, and contact flows remain available for conversion
+- `gallery` now showcases Indian category coverage instead of sparse filler
+- `story` aligns brand framing with the Indian refresh and fuller menu identity
 
-## Release readiness
+## Shared component impact
 
-### Local commands
+Files touched by implementation:
 
-```bash
-npm install
-npm run dev
-npm run build
-npm run start
-```
+- `components/MenuBrowser.tsx`
+- `components/MenuSection.tsx`
 
-### Review checkpoints
+Observed behavior:
 
-Deployment / PR reviewers should be able to confirm:
+- Menu browsing supports category filtering with category counts
+- Category descriptions provide more context for each menu segment
+- Section rendering stays reusable across the new Indian-specific pages
 
-- implementation commit exists: `feat(aka-80): implement its good But Feed data`
-- the menu dataset exposes **100 items**
-- homepage copy reflects the fuller feed and added pages
-- gallery/story/events routes are present and navigable
-- no Scribe-phase source modifications were introduced
+## Site metadata impact
 
-## Scribe handoff
+File:
 
-- README updated for operator-facing setup and feature summary
-- CHANGELOG updated with AKA-80 release documentation
-- Implementation notes refreshed for deployment handoff
-- No `git push`, PR creation, remote changes, or source-code edits were performed in this phase
+- `src/site.ts`
+
+Behavior:
+
+- Restaurant brand is positioned as **Saffron Thali House**
+- Stats and occasion cards now support the Indian-specific browse structure
+- Site copy now aligns with the larger menu, tea-house browsing, and thali-led positioning
+
+## Release-readiness notes
+
+### What appears ready
+
+- Menu dataset size exceeds the ticket minimum direction
+- Dedicated Indian browse pages are present
+- Image coverage is integrated into the data model
+- Homepage and supporting pages reflect the new IA and content direction
+- Documentation now matches the shipped scope
+
+### What to verify in final review / deployment
+
+- Visual QA for remote image rendering in Next.js environments
+- Responsive layout checks on the new `/thalis`, `/south-indian`, and `/tea-house` pages
+- Sanity-check category totals on `/menu`
+- Confirm no stale copy remains referencing the older generic restaurant framing where not intended
+
+## Files changed by Scribe
+
+- `README.md`
+- `CHANGELOG.md`
+- `docs/IMPLEMENTATION_NOTES.md`
+
+## Files intentionally not modified by Scribe
+
+Per role directive, no changes were made to application source such as:
+
+- `app/*.tsx`
+- `components/*.tsx`
+- `src/*`
+- `package.json`
+- other implementation files
