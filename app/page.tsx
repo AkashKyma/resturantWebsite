@@ -69,6 +69,11 @@ export default function HomePage() {
               <h3 className="mt-3 text-2xl font-bold text-slate-950">Tea house</h3>
               <p className="mt-2 text-slate-600">Masala chai, kahwa, filter coffee, sweets, and evening drinks in one calmer flow.</p>
             </Link>
+            <Link href="/billing" className="card-surface p-5 transition hover:-translate-y-1">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Invoices</p>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">Billing section</h3>
+              <p className="mt-2 text-slate-600">Open a customer billing dashboard with seeded invoices, multiple templates, and invoice creation.</p>
+            </Link>
           </div>
         </div>
       </section>
