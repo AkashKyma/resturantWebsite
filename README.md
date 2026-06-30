@@ -1,6 +1,19 @@
 # Saffron Thali House
 
-A polished Next.js restaurant site for **Saffron Thali House** with a significantly expanded Indian menu, stronger visual coverage, and dedicated browse paths for thalis, South Indian food, North Indian dishes, and tea-house offerings.
+A polished Next.js restaurant site for **Saffron Thali House** with a significantly expanded Indian menu, stronger visual coverage, dedicated browse paths for thalis, South Indian food, North Indian dishes, and tea-house offerings, plus a new billing workflow for customer invoices.
+
+## AKA-83 feature overview
+
+This deliverable adds a dedicated billing section for managing invoices across various customers while preserving the previously expanded Indian restaurant experience.
+
+### Billing highlights
+
+- Added a dedicated billing route at `/billing`
+- Added seeded invoice data with **10–20 preloaded invoices** for various customers
+- Added invoice creation so users can build a new invoice directly in the UI
+- Added multiple invoice templates for different presentation styles
+- Added billing summary cards for revenue and follow-up visibility
+- Preserved invoice details such as customer, company, status, dates, notes, and line items
 
 ## AKA-82 feature overview
 
@@ -50,9 +63,32 @@ npm run build
 npm run start
 ```
 
+## What was built for “Now Add Billing Section in Which various Customer invoice Are Present user Able to create A Invoice And Seed Atleast 10-20 invoice in it With various Template”
+
+The ticket asked for a billing section where various customer invoices are already present, users can create invoices, at least 10–20 invoices are seeded into the experience, and multiple templates are available. The implemented site now includes:
+
+### Billing and invoice management
+
+- A dedicated billing experience at `/billing`
+- Seeded invoice records for various customers so the section is populated on first load
+- Invoice creation inputs for:
+  - customer name
+  - customer email
+  - company
+  - invoice status
+  - invoice template
+  - issue date
+  - due date
+  - notes
+  - editable line items with quantity and unit price
+- Generated invoice identifiers in the UI flow
+- Summary cards for invoice totals, overdue/pending visibility, and portfolio value
+- Invoice cards that surface the seeded and newly created invoice data
+- Template options that let the billing area support multiple visual invoice styles
+
 ## What was built for “its good But Feed data And create for indian”
 
-The ticket asked for a stronger content feed, at least 100 more entries / fuller coverage, higher-quality images, more pages, and explicit Indian category depth. The implemented site now includes:
+The previous ticket asked for a stronger content feed, at least 100 more entries / fuller coverage, higher-quality images, more pages, and explicit Indian category depth. The implemented site now includes:
 
 ### Content and data
 
@@ -83,6 +119,7 @@ The ticket asked for a stronger content feed, at least 100 more entries / fuller
 
 - `/` — upgraded homepage with featured dishes, stats, showcase content, and browse entry points
 - `/menu` — full menu browsing experience with category filtering
+- `/billing` — customer invoice management with seeded invoices, creation flow, and template selection
 - `/thalis` — dedicated Indian thali page
 - `/south-indian` — dedicated South Indian browse path
 - `/tea-house` — dedicated tea and sweets page
@@ -106,3 +143,4 @@ The ticket asked for a stronger content feed, at least 100 more entries / fuller
 - Documentation for this ticket is captured in `CHANGELOG.md`
 - Delivery and handoff notes live in `docs/IMPLEMENTATION_NOTES.md`
 - This Scribe phase intentionally avoids source-code changes and focuses on release-ready documentation only
+- Billing implementation details are documented for deployment reviewers, but no billing source files were changed during this phase
