@@ -2,7 +2,7 @@
 
 ## Ticket
 
-- **AKA-82** — _its good But Feed data And create for indian_
+- **AKA-84** — _Now Add Billing Section in Which various Customer invoice Are Present user Able to create A Invoice And Seed Atleast 10-20 invoice in it With various Template_
 
 ## Scribe scope
 
@@ -12,133 +12,186 @@ No application source files were modified during the Scribe phase.
 
 ## Delivered implementation summary
 
-The implemented feature set turns the site into a more coherent Indian restaurant experience by expanding both the dataset and the page structure.
+The implemented feature set adds a dedicated billing workflow to the restaurant site so users can review seeded invoices from multiple customers and create additional invoices from the UI.
 
 ### Core implementation themes
 
-- Large menu-feed expansion beyond the earlier baseline
-- Indian-first category modeling instead of generic restaurant buckets
-- Dedicated browse paths for high-intent sections
-- Stronger image coverage across all major menu areas
-- Homepage copy and site metadata updated to reflect the Indian positioning
+- Dedicated billing page added to the application route structure
+- Seeded invoice dataset so the screen is immediately useful on first load
+- Template-based visual treatment for invoices
+- Creation flow for new invoices with multi-line-item support
+- Filterable invoice library for status- and template-based review
+- Billing summary metrics to make the dashboard feel operational instead of static
 
 ## Data architecture
 
-Primary menu content lives in:
+Primary billing data lives in:
 
-- `data/menu.ts`
+- `data/invoices.ts`
 
-### Menu model
+### Invoice model
 
 The dataset exports:
 
-- `MenuCategory`
-- `MenuItem`
-- `menuItems`
-- `categories`
-- `categoryDescriptions`
+- `InvoiceStatus`
+- `InvoiceTemplate`
+- `InvoiceLineItem`
+- `CustomerInvoice`
+- `invoiceTemplates`
+- `invoiceStatuses`
+- `seededInvoices`
+- `formatCurrency(...)`
+- `getInvoiceTotal(...)`
 
-### Current category set
+### Seeded dataset behavior
 
-- `Indian Thali`
-- `South Indian`
-- `North Indian`
-- `Tea`
-- `Desserts`
-- `Drinks`
+- The implementation seeds **12 invoices**, which satisfies the requested “10-20 invoice” range
+- Each invoice includes:
+  - invoice id
+  - invoice number
+  - customer name
+  - company
+  - email
+  - template
+  - status
+  - issue date
+  - due date
+  - notes
+  - line items
+- Currency formatting uses INR presentation via `Intl.NumberFormat`
+- Totals are derived from line-item quantity × rate aggregation
 
-### Dataset behavior
+### Template coverage
 
-- Menu entries are assembled from category-specific row arrays
-- `buildItems(...)` converts structured tuples into normalized `MenuItem` objects
-- Images are assigned by category-specific image pools
-- The current dataset size is **130 items**
+The seeded and created invoices support four template styles:
 
-## Page and route additions / refinements
+- `Classic`
+- `Modern`
+- `Minimal`
+- `Bold`
 
-### Homepage
+### Status coverage
+
+The seeded and created invoices support four operational states:
+
+- `Paid`
+- `Pending`
+- `Overdue`
+- `Draft`
+
+## Page and component structure
+
+### Billing route
 
 File:
 
+- `app/billing/page.tsx`
+
+Behavior:
+
+- Exposes the billing dashboard as a dedicated application page
+- Presents the invoice management experience without mixing it into the restaurant browse pages
+
+### Billing UI component
+
+File:
+
+- `components/BillingDashboard.tsx`
+
+Behavior:
+
+- Loads the seeded invoice list into local UI state
+- Computes dashboard metrics from current invoice data
+- Supports filtering by status and template
+- Supports selecting an invoice for detail inspection
+- Supports creating a new invoice from a form-driven workflow
+- Prepends newly created invoices to the current invoice list
+
+## Create-invoice workflow
+
+The invoice creation form supports:
+
+- customer identity fields
+- company field
+- email field
+- invoice template selection
+- invoice status selection
+- issue and due dates
+- notes
+- multiple editable line items
+
+### Validation behavior
+
+The implementation includes client-side checks for:
+
+- missing customer details
+- missing dates
+- no valid billable line items
+- due date earlier than issue date
+
+### Line item behavior
+
+- New line items can be added dynamically
+- Existing line items can be removed
+- At least one line item remains present in the editing experience
+- Invoice totals are derived from current line-item values
+
+## Dashboard behavior
+
+The billing dashboard surfaces summary metrics for:
+
+- total invoice count
+- total billed amount
+- collected revenue
+- overdue invoice count
+
+The invoice library view also surfaces:
+
+- invoice number
+- customer name
+- company
+- invoice template
+- invoice status
+- issue date
+- computed total
+
+The detail view surfaces:
+
+- customer contact context
+- notes
+- line item breakdown
+- totals for the selected invoice
+
+## Site navigation impact
+
+Files touched by implementation include:
+
 - `app/page.tsx`
-
-Behavior:
-
-- Surfaces featured Indian dishes
-- Highlights expanded menu depth and stronger imagery
-- Adds clearer browse cards for:
-  - full menu
-  - Indian thalis
-  - South Indian
-  - tea house
-
-### Dedicated Indian pages
-
-Files:
-
-- `app/thalis/page.tsx`
-- `app/south-indian/page.tsx`
-- `app/tea-house/page.tsx`
-
-Behavior:
-
-- `/thalis` focuses on signature and full thali selections
-- `/south-indian` emphasizes dosa, idli, appam, biryani, and tiffin depth
-- `/tea-house` separates chai / coffee browsing from dessert pairing
-
-### Supporting browse pages
-
-Files:
-
-- `app/gallery/page.tsx`
-- `app/story/page.tsx`
-
-Behavior:
-
-- `gallery` now showcases Indian category coverage instead of sparse filler
-- `story` aligns brand framing with the Indian refresh and fuller menu identity
-
-## Shared component impact
-
-Files touched by implementation:
-
-- `components/MenuBrowser.tsx`
-- `components/MenuSection.tsx`
+- `components/Navbar.tsx`
 
 Observed behavior:
 
-- Menu browsing supports category filtering with category counts
-- Category descriptions provide more context for each menu segment
-- Section rendering stays reusable across the new Indian-specific pages
-
-## Site metadata impact
-
-File:
-
-- `src/site.ts`
-
-Behavior:
-
-- Restaurant brand is positioned as **Saffron Thali House**
-- Stats and occasion cards now support the Indian-specific browse structure
-- Site copy now aligns with the larger menu, tea-house browsing, and thali-led positioning
+- The billing area is integrated into the user-facing site navigation
+- The homepage was updated so the billing section is discoverable from the broader application experience
 
 ## Release-readiness notes
 
 ### What appears ready
 
-- Menu dataset size exceeds the ticket minimum direction
-- Dedicated Indian browse pages are present
-- Image coverage is integrated into the data model
-- Homepage and supporting pages reflect the new IA and content direction
-- Documentation now matches the shipped scope
+- Billing route exists as a dedicated deliverable
+- Seeded invoice count satisfies the requested range
+- Multiple invoice templates are represented in both data and UI styling
+- Users can create invoices from the interface without editing code
+- Metrics, filters, and invoice details make the feature demonstrable for review and deployment
+- Documentation now matches the implemented billing scope
 
 ### What to verify in final review / deployment
 
-- Visual QA for remote image rendering in Next.js environments
-- Responsive layout checks on the new `/thalis`, `/south-indian`, and `/tea-house` pages
-- Sanity-check category totals on `/menu`
-- Confirm no stale copy remains referencing the older generic restaurant framing where not intended
+- Responsive QA on the billing dashboard layout across mobile and desktop widths
+- Quick smoke test for invoice creation after a fresh local start
+- Verify that default dates render correctly in the deployment environment timezone
+- Confirm billing navigation is present anywhere expected by product review
+- Sanity-check invoice totals and formatting for INR display
 
 ## Files changed by Scribe
 
