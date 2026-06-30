@@ -7,6 +7,11 @@ import { restaurant } from '@/src/site';
 export const metadata: Metadata = {
   title: `${restaurant.name} | Restaurant Website`,
   description: restaurant.tagline,
+  openGraph: {
+    title: restaurant.name,
+    description: restaurant.tagline,
+    images: [restaurant.heroImage],
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

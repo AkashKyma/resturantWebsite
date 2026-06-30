@@ -1,22 +1,28 @@
 import Link from 'next/link';
 
 import { HeroSection } from '@/components/HeroSection';
+import { ImageShowcase } from '@/components/ImageShowcase';
 import { MenuCard } from '@/components/MenuCard';
+import { OccasionGrid } from '@/components/OccasionGrid';
 import { SectionIntro } from '@/components/SectionIntro';
+import { StatsStrip } from '@/components/StatsStrip';
 import { menuItems } from '@/data/menu';
+import { restaurant } from '@/src/site';
 
-const featuredItems = menuItems.filter((item) => item.featured).slice(0, 4);
+const featuredItems = menuItems.filter((item) => item.featured).slice(0, 8);
+const showcaseItems = menuItems.slice(12, 20);
 
 export default function HomePage() {
   return (
     <main>
       <HeroSection />
+      <StatsStrip stats={restaurant.stats} />
 
       <section className="section-shell pt-8">
         <SectionIntro
           eyebrow="Featured dishes"
-          title="The kind of menu that makes people steal bites."
-          description="A few guest favorites to start with — bright starters, comforting mains, and a dessert worth pretending you&apos;ll share."
+          title="Now with a properly loaded menu, not just a polite sample size."
+          description="The feed is fuller, the images are stronger, and the menu finally feels like a place people can browse instead of guess at."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {featuredItems.map((item) => (
@@ -25,35 +31,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      <ImageShowcase items={showcaseItems} />
+      <OccasionGrid occasions={restaurant.occasions} />
+
       <section className="section-shell">
         <div className="card-surface grid gap-8 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <SectionIntro
               eyebrow="Plan your visit"
-              title="Walk in hungry, leave smug about your choice."
-              description="Reserve a table for date night, order ahead for pickup, or stop by for happy hour and stay longer than planned."
+              title="More pages, better browsing, less dead-end energy."
+              description="Move from menu to gallery, story, events, ordering, or reservations without the site feeling unfinished."
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <Link href="/menu" className="card-surface p-5 transition hover:-translate-y-1">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Browse</p>
               <h3 className="mt-3 text-2xl font-bold text-slate-950">Full menu</h3>
-              <p className="mt-2 text-slate-600">See every starter, main, dessert, and drink in one place.</p>
+              <p className="mt-2 text-slate-600">See all 100 menu items with images, pricing, prep times, and categories.</p>
             </Link>
-            <Link href="/order" className="card-surface p-5 transition hover:-translate-y-1">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Pickup</p>
-              <h3 className="mt-3 text-2xl font-bold text-slate-950">Place an order</h3>
-              <p className="mt-2 text-slate-600">Build a cart, set pickup time, and get dinner handled fast.</p>
+            <Link href="/gallery" className="card-surface p-5 transition hover:-translate-y-1">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">See</p>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">Food gallery</h3>
+              <p className="mt-2 text-slate-600">A visual sweep of plated dishes, desserts, drinks, and room mood.</p>
             </Link>
-            <Link href="/reservations" className="card-surface p-5 transition hover:-translate-y-1">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Book</p>
-              <h3 className="mt-3 text-2xl font-bold text-slate-950">Reserve a table</h3>
-              <p className="mt-2 text-slate-600">Secure your table for brunch, dinner, or celebrations.</p>
+            <Link href="/events" className="card-surface p-5 transition hover:-translate-y-1">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Gather</p>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">Private events</h3>
+              <p className="mt-2 text-slate-600">Packages, rooms, and sample hosting formats for bigger nights out.</p>
             </Link>
-            <Link href="/contact" className="card-surface p-5 transition hover:-translate-y-1">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">Visit</p>
-              <h3 className="mt-3 text-2xl font-bold text-slate-950">Contact details</h3>
-              <p className="mt-2 text-slate-600">Find our address, hours, phone number, and email.</p>
+            <Link href="/story" className="card-surface p-5 transition hover:-translate-y-1">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700">About</p>
+              <h3 className="mt-3 text-2xl font-bold text-slate-950">Our story</h3>
+              <p className="mt-2 text-slate-600">Give the brand some personality instead of leaving the site purely transactional.</p>
             </Link>
           </div>
         </div>
