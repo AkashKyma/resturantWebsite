@@ -1,16 +1,18 @@
 # Restaurant Website
 
-A polished Next.js restaurant site for **Juniper Table** with a significantly expanded menu feed, higher-quality food imagery, and more complete browsing paths for guests.
+A polished Next.js restaurant site for **Juniper Table** with a large India-focused food catalog, stronger visual presentation, and broader browsing paths for guests.
 
-## AKA-80 feature overview
+## AKA-81 feature overview
 
-This deliverable improves the original restaurant site by making the content feel fully stocked instead of thin:
+This deliverable documents the India menu expansion requested for **AKA-81**.
 
-- Expanded the menu feed to **100 total items** across starters, mains, desserts, and drinks
-- Added **high-quality image coverage** across the menu dataset so gallery and menu browsing feel visual and complete
-- Improved the landing page messaging to emphasize the fuller content experience
-- Added supporting discovery pages such as **Gallery**, **Story**, and **Events** to reduce dead ends and give the brand more depth
-- Preserved the core conversion flows for menu browsing, ordering, reservations, and contact
+The implementation now emphasizes a richer, more specific culinary direction instead of a generic restaurant feed:
+
+- Expanded the feed to **100+ menu items**
+- Shifted the menu content toward **Indian cuisine coverage** rather than a thin placeholder set
+- Added stronger support for **Indian thali**, **South Indian**, **North Indian**, and **tea** discovery
+- Improved image-backed browsing so menu cards and gallery-style sections feel complete
+- Preserved the core restaurant conversion flows for menu browsing, orders, reservations, and contact
 
 ## Tech stack
 
@@ -40,24 +42,35 @@ npm run build
 npm run start
 ```
 
-## What was built for “its good But Feed data”
+## What was built for AKA-81
 
-The ticket asked for a better content feed with at least 100 records, stronger images, and more pages. The implemented site now includes:
+The ticket direction was: make the feed better, raise it to at least 100 items, use good-quality images, add more pages, and specifically create a stronger Indian food experience covering **Indian thali**, **South Indian**, **North Indian**, and **tea**.
 
 ### Content and data
 
 - A local structured menu dataset in `data/menu.ts`
-- **100 menu entries** total
+- **100+ menu entries** designed to support a fuller browsing experience
+- Stronger India-first content coverage across multiple regions and dining styles
 - Per-item metadata including:
   - name
   - category
   - price
   - description
   - featured flags
-  - spicy / vegetarian flags
+  - vegetarian / spicy flags
   - calories
   - prep time
   - image URL
+  - region metadata where applicable
+
+### Featured cuisine coverage
+
+The implemented data is oriented around the ticket’s requested cuisine lanes:
+
+- **Indian thali** collections, including regional thali variants
+- **South Indian** dishes and platter coverage
+- **North Indian** mains and comfort-food staples
+- **Tea service** / chai-oriented browsing content
 
 ### Page coverage
 
@@ -73,9 +86,9 @@ The ticket asked for a better content feed with at least 100 records, stronger i
 ### Experience improvements
 
 - Featured items are surfaced directly on the homepage
-- Gallery sections reuse the richer image-backed menu dataset
-- Navigation now points users into more complete browse paths instead of leaving the site feeling sparse
-- Restaurant stats and occasion blocks reinforce that the menu depth and page count have been expanded intentionally
+- Gallery sections reuse the richer image-backed food dataset
+- Navigation gives users more complete browse paths instead of a sparse single-page feel
+- The larger Indian menu spread helps the site feel more intentional and marketable
 
 ## Repository notes
 

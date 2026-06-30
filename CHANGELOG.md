@@ -1,5 +1,13 @@
 # Changelog
 
+## [AKA-81] India-focused menu expansion and documentation handoff
+
+- Verified implementation commit presence: `feat(aka-81): implement indian feed expansion and extra pages`
+- Updated README with AKA-81 setup, run steps, production build steps, route coverage, and deployment-facing summary
+- Documented the expanded **100+ item** feed with stronger focus on **Indian thali**, **South Indian**, **North Indian**, and **tea** browsing
+- Captured that the release improves image-backed menu browsing and preserves the supporting route set for gallery, story, events, orders, reservations, and contact
+- Refreshed implementation notes so reviewers can quickly validate scope, architecture, and release readiness without source-code changes in the Scribe phase
+
 ## [AKA-80] Its good But Feed data
 
 - Documented the expanded restaurant content release for automated PR handoff

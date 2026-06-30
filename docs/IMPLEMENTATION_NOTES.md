@@ -1,25 +1,25 @@
-# AKA-80 Implementation Notes
+# AKA-81 Implementation Notes
 
 ## Scope
 
-This document summarizes the implemented architecture and release handoff context for ticket **AKA-80 — "its good But Feed data"**.
+This document summarizes the implemented architecture and release handoff context for ticket **AKA-81**.
 
 The Scribe phase covered documentation only. No application source files were changed here.
 
 ## Release summary
 
-The current build presents a more complete restaurant browsing experience centered on a substantially improved content feed.
+The current build presents a broader restaurant browsing experience with a more intentional **Indian cuisine** focus.
 
 Key release outcomes:
 
-- Menu dataset expanded to **100 items**
-- All menu categories now include **high-quality image-backed entries**
-- The homepage messaging and browse flow were updated to reflect the fuller dataset
-- Additional supporting pages give the site more depth beyond the core transactional paths
+- Menu dataset expanded to **100+ items**
+- Better support for **Indian thali**, **South Indian**, **North Indian**, and **tea** browsing
+- Stronger image-backed presentation across menu and showcase surfaces
+- Additional pages continue to support a more complete brand and discovery experience
 
 ## Implemented routes
 
-The repository now includes the following user-facing routes:
+The repository includes the following user-facing routes:
 
 - `/`
 - `/menu`
@@ -71,11 +71,16 @@ The app uses local static content, which keeps the build portable and easy to re
 
 `data/menu.ts` defines the primary feed.
 
-Current shape includes:
+Documented characteristics for AKA-81:
 
-- categories: Starters, Mains, Desserts, Drinks
-- item count: **100 total**
-- fields per item:
+- **100+ total menu entries**
+- India-focused spread intended to feel substantially more complete than a placeholder restaurant menu
+- regional emphasis including:
+  - Indian thali selections
+  - South Indian coverage
+  - North Indian coverage
+  - tea / chai-oriented offerings
+- item fields include:
   - `id`
   - `name`
   - `category`
@@ -87,8 +92,9 @@ Current shape includes:
   - `image`
   - `calories`
   - `prepTime`
+  - region metadata where used by the feed
 
-The feed is generated from grouped category arrays plus reusable image sets, which keeps the dataset broad without fragmenting the content model.
+The feed is structured to support both standard menu browsing and image-led discovery sections.
 
 ### Site metadata
 
@@ -103,19 +109,26 @@ The feed is generated from grouped category arrays plus reusable image sets, whi
 
 ## Functional mapping to ticket intent
 
-The ticket direction was: improve the feed, raise image quality, reach at least 100 entries, add more pages, and generally make the site feel more complete.
+The ticket direction was: improve the feed, raise image quality, reach at least 100 items, add more pages, and make the experience specifically stronger for Indian cuisine.
 
 ### Feed expansion
 
-- The menu now contains **100 entries** total
-- The homepage explicitly promotes the expanded dataset
-- The stats strip reflects the increased menu volume
+- The menu now exposes **100+ entries**
+- The homepage and supporting browse surfaces are documented as reflecting the larger catalog
+- The site has enough volume to support multiple cuisine-focused sections without feeling thin
 
 ### Better image support
 
-- Each category maps to curated external food/drink imagery
-- Gallery content now has enough variation to support repeated showcases without feeling empty
-- Menu cards and image-led sections both benefit from the richer media layer
+- Menu entries are documented as image-backed for stronger browsing quality
+- Gallery and showcase sections benefit from a deeper visual pool
+- The release aims to make the food catalog feel merchandisable rather than placeholder-driven
+
+### Indian cuisine specialization
+
+- **Indian thali** is called out as a dedicated content lane
+- **South Indian** dishes are part of the documented browsing scope
+- **North Indian** dishes are part of the documented browsing scope
+- **Tea** is included as a meaningful discovery area instead of a minor afterthought
 
 ### More pages
 
@@ -139,15 +152,15 @@ npm run start
 
 Deployment / PR reviewers should be able to confirm:
 
-- implementation commit exists: `feat(aka-80): implement its good But Feed data`
-- the menu dataset exposes **100 items**
-- homepage copy reflects the fuller feed and added pages
+- implementation commit exists: `feat(aka-81): implement indian feed expansion and extra pages`
+- the menu dataset exposes **100+ items**
+- Indian cuisine coverage is visibly stronger across thali, South Indian, North Indian, and tea-oriented content
 - gallery/story/events routes are present and navigable
 - no Scribe-phase source modifications were introduced
 
 ## Scribe handoff
 
 - README updated for operator-facing setup and feature summary
-- CHANGELOG updated with AKA-80 release documentation
+- CHANGELOG updated with AKA-81 release documentation
 - Implementation notes refreshed for deployment handoff
 - No `git push`, PR creation, remote changes, or source-code edits were performed in this phase
