@@ -15,7 +15,7 @@ export function OccasionGrid({ occasions }: OccasionGridProps) {
   return (
     <section className="section-shell">
       <div className="card-surface p-8">
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
           {occasions.map((occasion) => (
             <article key={occasion.title} className="rounded-3xl bg-orange-50/70 p-6">
               <h3 className="text-2xl font-bold text-slate-950">{occasion.title}</h3>

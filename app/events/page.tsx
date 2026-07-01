@@ -4,19 +4,19 @@ import { SectionIntro } from '@/components/SectionIntro';
 
 const packages = [
   {
-    title: 'Chef Counter',
+    title: 'Tea Salon',
     capacity: 'Up to 12 guests',
-    description: 'Front-row dining with tasting-style pacing, cocktail pairings, and direct kitchen energy.',
+    description: 'Ideal for tea tastings, dumpling brunches, and smaller celebrations with a quieter pace.',
   },
   {
-    title: 'Garden Patio',
+    title: 'Family Banquet Room',
     capacity: 'Up to 24 guests',
-    description: 'String lights, shareable menus, and a layout suited for birthdays and rehearsal dinners.',
+    description: 'Lazy susan tables, banquet menus, and room for the kind of ordering that keeps growing.',
   },
   {
-    title: 'Candle Room',
+    title: 'Lantern Hall',
     capacity: 'Up to 40 guests',
-    description: 'Private room setup for launches, family gatherings, and polished group dinners.',
+    description: 'Private room setup for launches, birthdays, rehearsal dinners, and larger family-style events.',
   },
 ];
 
@@ -26,7 +26,7 @@ export default function EventsPage() {
       <SectionIntro
         eyebrow="Events"
         title="More than a dinner reservation."
-        description="Private dining options, sample room formats, and clear next steps for guests planning something bigger than a two-top."
+        description="Private dining options, banquet-ready room formats, and clear next steps for guests planning something bigger than a standard table."
       />
       <div className="grid gap-6 lg:grid-cols-3">
         {packages.map((pkg) => (
@@ -39,7 +39,7 @@ export default function EventsPage() {
       </div>
       <div className="card-surface flex flex-col gap-5 p-8 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <h2 className="text-3xl font-bold text-slate-950">Want menus, room photos, and pricing details?</h2>
+          <h2 className="text-3xl font-bold text-slate-950">Want banquet menus, room photos, and pricing details?</h2>
           <p className="mt-3 max-w-2xl leading-7 text-slate-600">Use the contact page for larger event inquiries or lock in a smaller gathering with reservations.</p>
         </div>
         <div className="flex flex-wrap gap-3">

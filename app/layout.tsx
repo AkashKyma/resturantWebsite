@@ -5,7 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { restaurant } from '@/src/site';
 
 export const metadata: Metadata = {
-  title: `${restaurant.name} | Restaurant Website`,
+  title: `${restaurant.name} | Chinese Restaurant Website`,
   description: restaurant.tagline,
   openGraph: {
     title: restaurant.name,

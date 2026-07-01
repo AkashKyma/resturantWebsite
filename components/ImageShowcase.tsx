@@ -12,8 +12,8 @@ export function ImageShowcase({ items }: ImageShowcaseProps) {
     <section className="section-shell">
       <SectionIntro
         eyebrow="Gallery"
-        title="Good food should look good before the first bite."
-        description="A quick visual sweep of the dining room mood and some of the plates people end up taking photos of anyway."
+        title="The food now looks like the menu actually means business."
+        description="A quick visual sweep through dumplings, wok-fired plates, noodles, desserts, and tea-house moments so the Chinese cuisine shift feels real on first load."
       />
       <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {items.map((item) => (

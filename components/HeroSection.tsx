@@ -9,14 +9,14 @@ export function HeroSection() {
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
         <div className="space-y-6">
           <span className="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-brand-700">
-            Seasonal menu · Reservations open daily
+            Dim sum brunch · Late tea · Family-style dinners
           </span>
           <div className="space-y-4">
             <h1 className="max-w-3xl text-5xl font-black tracking-tight text-slate-950 sm:text-6xl">
-              Gather around bold flavors and easy evenings.
+              Chinese comfort food with sharper browsing and a much better first impression.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-slate-600">
-              {restaurant.tagline} Explore the menu, book your next dinner, or place an order for pickup in minutes.
+              {restaurant.tagline} Explore basket service, wok-fired mains, noodle bowls, and dessert stops without digging through the old cuisine structure.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
@@ -30,7 +30,7 @@ export function HeroSection() {
           <div className="grid gap-4 sm:grid-cols-3">
             {[
               ['4.8/5', 'Guest rating'],
-              ['15 min', 'Average pickup prep'],
+              ['12 min', 'Average pickup prep'],
               ['7 days', 'Reservations accepted'],
             ].map(([value, label]) => (
               <div key={label} className="card-surface px-5 py-4">
@@ -48,22 +48,22 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/10" />
             <div className="absolute inset-0 p-8">
               <p className="text-sm uppercase tracking-[0.3em] text-orange-300">Tonight&apos;s highlight</p>
-              <h2 className="mt-4 text-3xl font-bold">Chef&apos;s tasting, minus the attitude.</h2>
+              <h2 className="mt-4 text-3xl font-bold">Chili heat, dumpling steam, and tea that actually earns a page.</h2>
               <p className="mt-4 max-w-md text-base leading-7 text-slate-200">
-                Handmade pasta, woodfired mains, and bright desserts — all in a room that feels more like a dinner party than a dining room.
+                Built around brunch baskets, fragrant noodle bowls, punchy Sichuan mains, and lighter desserts for the table that always orders one more thing.
               </p>
               <div className="mt-8 grid gap-3 rounded-[1.5rem] bg-white/10 p-5 backdrop-blur-sm">
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <span>Friday special</span>
-                  <span className="font-semibold text-orange-300">Ribeye &amp; spritz</span>
+                  <span>Weekend feature</span>
+                  <span className="font-semibold text-orange-300">Dim sum set for 4</span>
                 </div>
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <span>Happy hour</span>
-                  <span className="font-semibold text-orange-300">4–6 PM</span>
+                  <span>Tea service</span>
+                  <span className="font-semibold text-orange-300">All day</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>Pickup window</span>
-                  <span className="font-semibold text-orange-300">Until 9:30 PM</span>
+                  <span className="font-semibold text-orange-300">Until 9:00 PM</span>
                 </div>
               </div>
             </div>
