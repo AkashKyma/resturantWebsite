@@ -1,5 +1,17 @@
 # Changelog
 
+## [KYM-1] Remodeling the Website For Chinese cuisine
+
+- Documented the Chinese-cuisine website remodel for automated PR handoff
+- Verified implementation commit presence: `feat(kym-1): implement Remodeling the Website For Chinese cuisine`
+- Updated README with setup, local run steps, production build steps, route coverage, and release summary
+- Captured release notes for the cuisine conversion from Indian to Chinese positioning:
+  - brand updated to **Red Lantern House**
+  - homepage and supporting pages rewritten for Chinese cuisine
+  - dedicated browse pages for **/dim-sum**, **/sichuan**, **/noodle-house**, and **/tea-house**
+  - preserved compatibility routes such as **/north-indian** and **/south-indian** now pointing to meaningful Chinese sections
+- Added implementation notes so deployment reviewers can quickly confirm architecture, scope, and release readiness
+
 ## [AKA-82] Its good But Feed data And create for indian
 
 - Documented the Indian restaurant content expansion for automated PR handoff

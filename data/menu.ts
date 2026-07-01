@@ -1,8 +1,8 @@
 export type MenuCategory =
-  | 'Indian Thali'
-  | 'South Indian'
-  | 'North Indian'
-  | 'Tea'
+  | 'Dim Sum'
+  | 'Sichuan'
+  | 'Noodle House'
+  | 'Tea House'
   | 'Desserts'
   | 'Drinks';
 
@@ -21,194 +21,156 @@ export type MenuItem = {
 };
 
 const imageSet = {
-  indianThali: [
-    'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1200&q=80'
+  dimSum: [
+    'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=1200&q=80'
   ],
-  southIndian: [
-    'https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1673442635965-1c322d076d4b?auto=format&fit=crop&w=1200&q=80'
+  sichuan: [
+    'https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80'
   ],
-  northIndian: [
-    'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80'
+  noodleHouse: [
+    'https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=1200&q=80'
   ],
-  tea: [
-    'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=80',
+  teaHouse: [
     'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1564894809611-1742fc40ed80?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1564894809611-1742fc40ed80?auto=format&fit=crop&w=1200&q=80'
   ],
   desserts: [
-    'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1603532648955-039310d9ed75?auto=format&fit=crop&w=1200&q=80'
   ],
   drinks: [
-    'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1200&q=80',
     'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1200&q=80'
+    'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=1200&q=80'
   ]
 } as const;
 
-const indianThali = [
-  ['Royal Veg Thali', 18, 'Paneer butter masala, dal tadka, aloo jeera, pulao, roti, papad, pickle, salad, and gulab jamun.', true, false, true, 780, '14 min'],
-  ['Maharaja Non-Veg Thali', 23, 'Butter chicken, mutton curry, dal makhani, jeera rice, naan, salad, and dessert.', true, true, false, 920, '16 min'],
-  ['Gujarati Kathiyawadi Thali', 19, 'Sev tameta, ringna bateta, dal, kadhi, bajra rotla, khichdi, farsan, and shrikhand.', false, true, true, 760, '15 min'],
-  ['Rajasthani Dal Baati Churma Thali', 20, 'Baked baati, panchmel dal, gatte ki sabzi, churma, garlic chutney, and buttermilk.', true, true, true, 840, '17 min'],
-  ['Punjabi Dhaba Thali', 21, 'Dal makhani, chole, paneer lababdar, tandoori roti, rice, onion salad, and lassi.', true, true, true, 830, '15 min'],
-  ['Coastal Fish Thali', 24, 'Meen curry, coconut rice, thoran, rasam, appam, pickle, and payasam.', true, true, false, 810, '16 min'],
-  ['Kerala Sadya Mini Thali', 18, 'Avial, olan, sambar, rasam, thoran, red rice, pappadam, pickle, and payasam.', false, false, true, 720, '15 min'],
-  ['Andhra Spice Thali', 20, 'Gongura pachadi, pappu, gutti vankaya, spicy chicken fry, rice, curd, and pickle.', true, true, false, 850, '16 min'],
-  ['Bengali Bhog Thali', 19, 'Luchi, cholar dal, alur dom, beguni, pulao, chutney, and mishti doi.', false, false, true, 740, '15 min'],
-  ['Jain Comfort Thali', 18, 'No onion no garlic paneer curry, dal, vegetable sabzi, khichdi, phulka, and halwa.', false, false, true, 700, '14 min'],
-  ['Millet Wellness Thali', 17, 'Foxtail millet khichdi, lauki kofta, spinach dal, jowar roti, salad, and chaas.', false, false, true, 650, '14 min'],
-  ['Hyderabadi Thali', 22, 'Bagara rice, mirchi ka salan, chicken korma, dalcha, naan, and double ka meetha.', true, true, false, 880, '16 min'],
-  ['Amritsari Kulcha Thali', 19, 'Stuffed kulcha, chole, boondi raita, onion salad, mint chutney, and kheer.', false, true, true, 760, '13 min'],
-  ['Temple Prasadam Thali', 16, 'Lemon rice, curd rice, poriyal, sambar, chutney, appalam, and sakkarai pongal.', false, false, true, 690, '13 min'],
-  ['Weekend Family Thali', 26, 'Paneer tikka masala, dal makhani, veg jalfrezi, biryani rice, naan basket, and dessert duo.', true, true, true, 980, '18 min'],
-  ['Street Feast Thali', 18, 'Pav bhaji, mini vada pav, masala pulao, raita, kachumber, and jalebi.', false, true, true, 770, '14 min'],
-  ['Lucknowi Thali', 22, 'Galouti kebab, roomali roti, nihari gravy, peas pulao, salad, and shahi tukda.', true, true, false, 890, '17 min'],
-  ['Chettinad Thali', 21, 'Pepper chicken, kara kuzhambu, beans poriyal, steamed rice, parotta, and payasam.', true, true, false, 860, '16 min'],
-  ['Festival Satvik Thali', 17, 'Aloo rasedar, paneer tomato curry, sama rice khichdi, kuttu puri, and fruit rabri.', false, false, true, 710, '15 min'],
-  ['Mumbai Lunch Thali', 18, 'Puri bhaji, dal fry, paneer bhurji, pulao, sol kadhi, papad, and shrikhand.', false, false, true, 750, '14 min'],
-  ['Royal Awadhi Veg Thali', 21, 'Nawabi paneer, subz qorma, dal, saffron rice, sheermal, and phirni.', true, false, true, 820, '16 min'],
-  ['Malabar Prawn Thali', 24, 'Prawn roast, coconut curry, matta rice, beetroot thoran, appam, and payasam.', true, true, false, 840, '17 min'],
-  ['Farmer\'s Simple Thali', 15, 'Seasonal sabzi, yellow dal, steamed rice, chapati, pickle, curd, and jaggery.', false, false, true, 610, '12 min'],
-  ['Paneer Lover Thali', 20, 'Paneer makhani, paneer bhurji, dal, jeera rice, butter naan, and gulab jamun.', true, false, true, 860, '15 min'],
-  ['Kolkata Fish Thali', 23, 'Mustard fish curry, moong dal, aloo bhaja, steamed rice, chutney, and rasgulla.', true, true, false, 810, '16 min'],
-  ['Deccan Millet Thali', 18, 'Ragi mudde, saaru, vegetable palya, curd, pickle, and payasam.', false, true, true, 680, '14 min'],
-  ['Village Chicken Thali', 22, 'Country chicken curry, dal fry, rice, jowar roti, thecha, and onion salad.', true, true, false, 890, '16 min'],
-  ['Navratna Veg Thali', 19, 'Navratan korma, dal tadka, peas pulao, missi roti, raita, and halwa.', false, false, true, 760, '14 min'],
-  ['Bombay Seafood Thali', 24, 'Bombil fry, prawn curry, sol kadhi, steamed rice, bhakri, and koshimbir.', true, true, false, 850, '17 min'],
-  ['House Signature Grand Thali', 27, 'Curated mix of chef specials across curry, bread, rice, snack, pickle, dessert, and chai pairing.', true, true, false, 1020, '18 min']
+const dimSum = [
+  ['Har Gow', 8, 'Translucent shrimp dumplings with bamboo shoots and sesame oil.', true, false, false, 220, '8 min'],
+  ['Siu Mai', 8, 'Open-faced pork and shrimp dumplings with roe and scallion.', true, false, false, 240, '8 min'],
+  ['Char Siu Bao', 7, 'Steamed barbecue pork buns with glossy sweet-savory filling.', true, false, false, 260, '9 min'],
+  ['Vegetable Crystal Dumplings', 7, 'Spinach wrappers filled with mushrooms, chives, and water chestnut.', false, false, true, 190, '8 min'],
+  ['Shrimp Cheung Fun', 9, 'Silky rice noodle rolls with shrimp and sweet soy drizzle.', true, false, false, 280, '9 min'],
+  ['Turnip Cake', 7, 'Pan-seared daikon cake with dried shrimp and scallion.', false, false, false, 250, '8 min'],
+  ['Spring Roll Trio', 6, 'Crisp rolls filled with cabbage, carrot, and shiitake.', false, false, true, 230, '7 min'],
+  ['Sticky Rice in Lotus Leaf', 8, 'Glutinous rice parcel with chicken, sausage, and shiitake.', false, false, false, 340, '10 min'],
+  ['Chicken Feet Black Bean', 7, 'Braised phoenix claws in fermented black bean sauce.', false, true, false, 260, '9 min'],
+  ['Pork Xiao Long Bao', 9, 'Soup dumplings with rich broth and ginger vinegar.', true, false, false, 300, '9 min'],
+  ['Scallion Pancake', 6, 'Layered pan-fried flatbread with flaky texture and soy dip.', false, false, true, 310, '7 min'],
+  ['Chive Potstickers', 7, 'Crisp-bottom dumplings stuffed with garlic chives and pork.', false, false, false, 290, '8 min'],
+  ['Egg Custard Tarts', 6, 'Buttery shells filled with warm Cantonese egg custard.', true, false, true, 210, '6 min'],
+  ['BBQ Pork Puff', 7, 'Laminated pastry with roasted char siu filling.', false, false, false, 270, '7 min'],
+  ['Sesame Shrimp Toast', 8, 'Golden toast squares with shrimp mousse and toasted sesame.', false, false, false, 320, '8 min'],
+  ['Tofu Skin Rolls', 7, 'Bean curd sheets wrapped around vegetables in light sauce.', false, false, true, 220, '8 min'],
+  ['Red Oil Wontons', 8, 'Pork wontons dressed in chili oil, vinegar, and garlic.', true, true, false, 330, '8 min'],
+  ['Salt Pepper Squid Bites', 10, 'Wok-tossed squid with jalapeño, garlic, and five spice.', true, true, false, 360, '9 min'],
+  ['Prawn Toast Sticks', 8, 'Sesame prawn toast cut for sharing with citrus mayo.', false, false, false, 310, '8 min'],
+  ['Custard Lava Buns', 7, 'Steamed buns with molten salted egg yolk center.', true, false, true, 280, '8 min']
 ] as const;
 
-const southIndian = [
-  ['Classic Masala Dosa', 11, 'Crisp fermented rice crêpe filled with spiced potato masala, served with sambar and chutneys.', true, false, true, 420, '10 min'],
-  ['Ghee Roast Dosa', 12, 'Paper-thin dosa roasted in ghee with fiery chutney podi and potato masala.', true, true, true, 450, '11 min'],
-  ['Mysore Masala Dosa', 12, 'Dosa layered with spicy Mysore chutney and stuffed with masala potatoes.', true, true, true, 460, '11 min'],
-  ['Rava Onion Dosa', 11, 'Semolina dosa with onion, pepper, cumin, and coriander.', false, false, true, 390, '10 min'],
-  ['Set Dosa with Kurma', 11, 'Soft sponge dosas served with vegetable kurma and coconut chutney.', false, false, true, 410, '10 min'],
-  ['Pesarattu Upma', 12, 'Green gram crêpe wrapped around soft upma, ginger chutney, and sambar.', false, false, true, 430, '11 min'],
-  ['Mini Idli Sambar Bowl', 10, 'Button idlis soaked in aromatic sambar with ghee and coriander.', false, false, true, 320, '8 min'],
-  ['Thatte Idli Plate', 10, 'Large soft idlis with chutney trio and vegetable sagu.', false, false, true, 340, '8 min'],
-  ['Medu Vada Basket', 9, 'Crisp urad dal doughnuts with coconut chutney and hot sambar.', false, false, true, 360, '8 min'],
-  ['Pongal & Vada Combo', 11, 'Creamy ven pongal with pepper, cashew, and a crisp medu vada.', false, false, true, 430, '9 min'],
-  ['Curd Rice Tempered', 9, 'Cooling curd rice with pomegranate, curry leaves, and pickle.', false, false, true, 310, '6 min'],
-  ['Lemon Rice Bowl', 9, 'Turmeric rice with peanuts, curry leaves, and green chili tempering.', false, true, true, 300, '6 min'],
-  ['Tamarind Rice', 9, 'Puliyodarai with sesame, peanuts, and temple-style spice blend.', false, true, true, 320, '6 min'],
-  ['Tomato Rice', 10, 'South-style tomato rice with cashews and roasted papad.', false, true, true, 330, '7 min'],
-  ['Bisi Bele Bath', 11, 'Karnataka lentil-rice pot with vegetables, ghee, and boondi.', false, true, true, 420, '10 min'],
-  ['Chettinad Veg Curry', 12, 'Roasted spice coconut curry with mixed vegetables and flaky parotta.', false, true, true, 470, '11 min'],
-  ['Kothu Parotta', 13, 'Shredded parotta tossed with egg, onion, curry leaves, and salna.', false, true, false, 560, '12 min'],
-  ['Malabar Parotta & Kurma', 12, 'Layered parotta with silky mixed vegetable kurma.', false, false, true, 510, '10 min'],
-  ['Appam with Vegetable Stew', 12, 'Lacy appams paired with coconut vegetable stew.', true, false, true, 440, '11 min'],
-  ['Idiyappam Coconut Milk', 11, 'String hoppers served with lightly sweet coconut milk and vegetable kurma.', false, false, true, 370, '9 min'],
-  ['Andhra Chili Paneer', 13, 'Paneer tossed with curry leaves, green chilies, and Andhra spices.', false, true, true, 460, '11 min'],
-  ['Gongura Chicken Bowl', 14, 'Tangy sorrel-leaf chicken with steamed rice and onion salad.', true, true, false, 580, '12 min'],
-  ['Hyderabadi Veg Dum Biryani', 14, 'Layered basmati biryani with fried onions, herbs, and mirchi ka salan.', true, true, true, 590, '13 min'],
-  ['Hyderabadi Chicken Biryani', 16, 'Fragrant dum biryani with raita and salan.', true, true, false, 690, '14 min'],
-  ['Kerala Fish Curry Meal', 15, 'Tangy coconut fish curry with matta rice and thoran.', true, true, false, 610, '13 min'],
-  ['Podi Idli Fry', 10, 'Pan-tossed idli cubes coated in podi masala and ghee.', false, true, true, 350, '8 min'],
-  ['Uttapam Trio', 12, 'Tomato, onion, and chili uttapam assortment with chutneys.', false, true, true, 430, '10 min'],
-  ['Coconut Sevai', 9, 'Rice noodles tempered with mustard, curry leaves, and fresh coconut.', false, false, true, 280, '6 min'],
-  ['South Indian Filter Coffee Set', 8, 'Strong decoction coffee with mini butter biscuits.', true, false, true, 150, '4 min'],
-  ['Madurai Kari Dosa', 15, 'Stuffed dosa with spiced minced lamb, egg wash, and chutney.', true, true, false, 640, '13 min']
+const sichuan = [
+  ['Mapo Tofu', 14, 'Silken tofu in chile bean sauce with Sichuan peppercorn and minced pork.', true, true, false, 460, '11 min'],
+  ['Kung Pao Chicken', 15, 'Wok-fired chicken with peanuts, dried chilies, and scallion.', true, true, false, 520, '12 min'],
+  ['Dry-Fried Green Beans', 12, 'Blistered beans with garlic, preserved mustard greens, and chili.', false, true, true, 280, '10 min'],
+  ['Chongqing Crispy Chicken', 16, 'Crackly fried chicken hidden under dried chilies and peppercorn.', true, true, false, 610, '13 min'],
+  ['Dan Dan Noodles', 13, 'Springy noodles with sesame-chili sauce, pork, and mustard greens.', true, true, false, 540, '11 min'],
+  ['Twice-Cooked Pork', 15, 'Pork belly stir-fried with leek, pepper, and fermented bean paste.', false, true, false, 590, '12 min'],
+  ['Fish-Fragrant Eggplant', 13, 'Braised eggplant in garlicky sweet-hot sauce.', true, true, true, 410, '11 min'],
+  ['Water-Boiled Beef', 18, 'Tender beef in a deep red broth with napa cabbage and chili oil.', true, true, false, 690, '14 min'],
+  ['Tea-Smoked Duck', 19, 'Duck breast with smoky lacquered skin and plum sauce.', true, false, false, 620, '14 min'],
+  ['Garlic Cucumber Salad', 9, 'Chilled cucumbers smashed with garlic, vinegar, and sesame.', false, false, true, 120, '5 min'],
+  ['Sichuan Wontons', 12, 'Pork wontons in numbing chili broth with greens.', false, true, false, 430, '10 min'],
+  ['Hot & Sour Soup', 8, 'Peppery broth with tofu, mushroom, bamboo shoot, and egg ribbon.', false, true, true, 180, '6 min'],
+  ['Laziji Cauliflower', 12, 'Crisp cauliflower tossed with cumin, dried chilies, and garlic.', false, true, true, 290, '10 min'],
+  ['Chili Oil Dumpling Bowl', 13, 'Mixed dumplings in fragrant red oil with black vinegar.', true, true, false, 470, '10 min'],
+  ['Sichuan Pepper Shrimp', 17, 'Shell-on shrimp flash-fried with toasted peppercorn and chile.', true, true, false, 560, '12 min'],
+  ['Braised Tofu Clay Pot', 14, 'Tofu, mushroom, bok choy, and glass noodles in savory broth.', false, false, true, 390, '11 min'],
+  ['Cumin Lamb', 18, 'Wok-seared lamb with cumin, onion, cilantro, and red chilies.', true, true, false, 650, '13 min'],
+  ['Garlic Bok Choy', 10, 'Quick-cooked bok choy finished with fragrant garlic oil.', false, false, true, 140, '6 min'],
+  ['Sichuan Fried Rice', 13, 'Egg fried rice with chili crisp, vegetables, and smoked tofu.', false, true, true, 420, '9 min'],
+  ['Red Braised Brisket', 19, 'Slow-braised beef brisket with daikon and star anise depth.', false, false, false, 610, '14 min']
 ] as const;
 
-const northIndian = [
-  ['Paneer Butter Masala', 13, 'Creamy tomato gravy with charred paneer cubes and kasuri methi.', true, false, true, 520, '11 min'],
-  ['Dal Makhani', 11, 'Slow-cooked black lentils with butter, cream, and smoky finish.', true, false, true, 430, '10 min'],
-  ['Chole Bhature', 12, 'Amritsari chickpea curry with fluffy bhature and pickle.', true, true, true, 590, '12 min'],
-  ['Rajma Chawal', 11, 'Delhi-style kidney bean curry with cumin rice and onion salad.', false, false, true, 470, '10 min'],
-  ['Aloo Paratha Platter', 10, 'Stuffed parathas with curd, pickle, and white butter.', false, false, true, 510, '9 min'],
-  ['Paneer Tikka Skewers', 13, 'Clay oven paneer with peppers, onions, and mint chutney.', true, true, true, 450, '11 min'],
-  ['Chicken Tikka', 14, 'Yogurt-marinated boneless chicken roasted in the tandoor.', true, true, false, 480, '12 min'],
-  ['Butter Chicken', 15, 'Classic makhani gravy with charred tandoori chicken pieces.', true, false, false, 610, '12 min'],
-  ['Rogan Josh', 16, 'Kashmiri-style lamb curry with fennel and dry ginger notes.', true, true, false, 640, '13 min'],
-  ['Palak Paneer', 12, 'Spinach purée with paneer, garlic, and tempered cumin.', false, false, true, 410, '10 min'],
-  ['Kadai Vegetable', 11, 'Seasonal vegetables in onion-tomato masala with crushed coriander.', false, true, true, 390, '10 min'],
-  ['Kadai Chicken', 14, 'Chicken curry with peppers, tomato, and coarsely ground spices.', false, true, false, 560, '11 min'],
-  ['Malai Kofta', 13, 'Soft paneer-potato dumplings in rich cashew gravy.', false, false, true, 540, '11 min'],
-  ['Matar Mushroom', 12, 'Peas and mushroom curry with ginger and tomato gravy.', false, false, true, 400, '10 min'],
-  ['Bhindi Do Pyaza', 11, 'Okra stir-fry with onions, amchur, and coriander.', false, false, true, 330, '9 min'],
-  ['Aloo Gobi Adraki', 10, 'Cauliflower and potato sautéed with ginger and turmeric.', false, false, true, 350, '9 min'],
-  ['Paneer Lababdar', 13, 'Smoky paneer curry finished with cream and butter.', true, false, true, 530, '11 min'],
-  ['Lachha Paratha Basket', 8, 'Layered flaky flatbreads with pickle and chutney.', false, false, true, 290, '6 min'],
-  ['Garlic Naan', 5, 'Soft naan brushed with garlic butter and coriander.', false, false, true, 220, '5 min'],
-  ['Tandoori Roti', 4, 'Whole wheat roti baked in the tandoor.', false, false, true, 160, '4 min'],
-  ['Veg Pulao', 9, 'Fragrant basmati rice with vegetables, mint, and fried onions.', false, false, true, 360, '8 min'],
-  ['Jeera Rice', 7, 'Basmati rice tempered with cumin and ghee.', false, false, true, 280, '6 min'],
-  ['Lucknowi Veg Biryani', 14, 'Subtle Awadhi biryani with saffron, nuts, and aromatic spices.', false, false, true, 560, '12 min'],
-  ['Murgh Dum Biryani', 16, 'Slow-cooked chicken biryani with raita and salan.', true, true, false, 710, '13 min'],
-  ['Dahi Bhalla Chaat', 9, 'Lentil dumplings with yogurt, tamarind, mint, and sev.', false, false, true, 320, '7 min'],
-  ['Samosa Chaat', 9, 'Crushed samosa with chole, yogurt, chutneys, and onions.', false, true, true, 390, '8 min'],
-  ['Papdi Chaat', 8, 'Crisp wafers topped with potatoes, yogurt, chutneys, and pomegranate.', false, false, true, 300, '7 min'],
-  ['Kulfi Falooda', 9, 'Traditional kulfi with falooda sev and rose syrup.', true, false, true, 340, '5 min'],
-  ['Shahi Paneer', 13, 'Royal paneer curry enriched with saffron and cashew paste.', true, false, true, 520, '11 min'],
-  ['Sarson Saag Makki Roti', 12, 'Punjabi mustard greens with corn flatbread and jaggery.', false, false, true, 430, '11 min']
+const noodleHouse = [
+  ['Beef Hand-Pulled Noodles', 15, 'Long wheat noodles in aromatic beef broth with greens and chili paste.', true, false, false, 560, '11 min'],
+  ['Zhajiangmian', 14, 'Thick noodles with savory soybean pork sauce, cucumber, and scallion.', false, false, false, 580, '10 min'],
+  ['Scallion Oil Noodles', 11, 'Simple chewy noodles slicked with fragrant scallion oil.', false, false, true, 430, '8 min'],
+  ['Singapore Mei Fun', 13, 'Curried rice noodles with egg, vegetables, and char siu.', false, true, false, 470, '10 min'],
+  ['Shrimp Wonton Noodle Soup', 14, 'Egg noodles in clear broth with plump shrimp wontons.', true, false, false, 450, '9 min'],
+  ['House Lo Mein', 13, 'Soft noodles stir-fried with vegetables, soy, and wok hei.', false, false, true, 520, '10 min'],
+  ['Beef Chow Fun', 15, 'Wide rice noodles, seared beef, and bean sprouts in dark soy.', true, false, false, 590, '11 min'],
+  ['Vegetable Chow Mein', 12, 'Crisp pan-fried noodles with mixed vegetables and oysterless sauce.', false, false, true, 460, '9 min'],
+  ['Yangzhou Fried Rice', 13, 'Classic fried rice with shrimp, char siu, egg, and peas.', true, false, false, 520, '9 min'],
+  ['Egg Fried Rice', 10, 'Wok-tossed jasmine rice with egg, scallion, and soy.', false, false, true, 390, '8 min'],
+  ['Salted Fish Chicken Fried Rice', 14, 'Savory fried rice with chicken, salted fish, and wok aroma.', false, false, false, 540, '9 min'],
+  ['Congee with Century Egg', 11, 'Slow-cooked rice porridge with pork, ginger, and scallion.', false, false, false, 330, '9 min'],
+  ['Seafood Congee', 13, 'Comforting rice porridge with shrimp, fish, and white pepper.', false, false, false, 350, '10 min'],
+  ['Soy Sauce Pan Noodles', 12, 'Hong Kong-style noodles finished with soy glaze and bean sprouts.', false, false, true, 470, '9 min'],
+  ['Braised Tofu Rice Bowl', 12, 'Steamed rice topped with soy-braised tofu and shiitake.', false, false, true, 410, '8 min'],
+  ['Crispy Orange Chicken Bowl', 14, 'Rice bowl with citrus-glazed chicken and sesame greens.', true, false, false, 620, '10 min'],
+  ['Mushroom Udon Stir-Fry', 13, 'Thick noodles tossed with king oyster mushrooms and bok choy.', false, false, true, 500, '10 min'],
+  ['Black Pepper Beef Rice', 15, 'Sliced beef, onions, and pepper sauce over steamed rice.', false, false, false, 570, '10 min'],
+  ['Chicken Lettuce Wrap Set', 13, 'Minced chicken, water chestnut, and mushrooms with lettuce cups and rice.', false, false, false, 430, '9 min'],
+  ['XO Vegetable Rice Cakes', 14, 'Chewy rice cakes wok-seared with vegetables and vegetarian XO-style sauce.', true, true, true, 510, '10 min']
 ] as const;
 
-const tea = [
-  ['Masala Chai', 4, 'House-brewed black tea simmered with milk, ginger, cardamom, clove, and cinnamon.', true, true, true, 120, '4 min'],
-  ['Cutting Chai', 3, 'Mumbai-style half glass strong chai for quick sipping.', false, true, true, 80, '3 min'],
-  ['Elaichi Chai', 4, 'Fragrant milk tea with green cardamom and a mellow finish.', false, false, true, 110, '4 min'],
-  ['Adrak Chai', 4, 'Bold ginger tea with warming spice and creamy milk.', false, true, true, 115, '4 min'],
-  ['Kashmiri Kahwa', 5, 'Green tea infusion with saffron, cinnamon, almonds, and rose petals.', true, false, true, 70, '5 min'],
-  ['Noon Chai', 5, 'Pink Kashmiri salted tea with milk and pistachio dust.', false, false, true, 95, '5 min'],
-  ['Tulsi Herbal Tea', 4, 'Caffeine-free holy basil infusion with honeyed aroma.', false, false, true, 20, '4 min'],
-  ['Lemongrass Tea', 4, 'Fresh lemongrass brew with citrus notes and light sweetness.', false, false, true, 25, '4 min'],
-  ['Mint Green Tea', 4, 'Refreshing green tea with garden mint leaves.', false, false, true, 15, '3 min'],
-  ['Sulaimani Tea', 4, 'Kerala black tea with lemon, mint, and a pinch of spice.', false, false, true, 18, '3 min'],
-  ['Irani Chai', 5, 'Creamy slow-brewed tea with condensed milk richness.', true, false, true, 140, '5 min'],
-  ['Chocolate Chai', 5, 'Spiced chai touched with cocoa and steamed milk.', false, false, true, 160, '5 min'],
-  ['Rose Chai', 5, 'Silky chai infused with dried rose petals and cardamom.', false, false, true, 125, '4 min'],
-  ['Jaggery Chai', 4, 'Traditional chai sweetened with dark jaggery.', false, false, true, 118, '4 min'],
-  ['Filter Kaapi', 4, 'South Indian filter coffee with deep roast aroma and frothy milk.', true, false, true, 90, '4 min'],
-  ['Badam Milk Tea', 5, 'Milky tea with almond paste and saffron.', false, false, true, 170, '5 min'],
-  ['Ice Tea Nimbu', 4, 'Indian-style chilled lemon tea with black salt and mint.', false, false, true, 60, '3 min'],
-  ['Peach Iced Chai', 5, 'Cold chai with peach nectar and a subtle spice finish.', false, false, true, 95, '4 min'],
-  ['Tandoori Chai', 5, 'Dramatic smoky chai finished in a fired clay kulhad.', true, true, true, 130, '5 min'],
-  ['Saffron Milk Tea', 5, 'Rich tea with saffron, cardamom, and a creamy finish.', false, false, true, 135, '5 min']
+const teaHouse = [
+  ['Jasmine Pearl Tea', 5, 'Delicate green tea pearls with floral aroma and clean finish.', true, false, true, 5, '4 min'],
+  ['Tie Guan Yin', 6, 'Roasted oolong with stone-fruit notes and lingering sweetness.', false, false, true, 5, '4 min'],
+  ['Pu-erh Pot', 6, 'Earthy aged tea brewed tableside for long conversations.', false, false, true, 5, '4 min'],
+  ['Chrysanthemum Tea', 5, 'Golden herbal infusion with honeyed floral finish.', false, false, true, 10, '4 min'],
+  ['Hong Kong Milk Tea', 6, 'Strong black tea pulled smooth with evaporated milk.', true, false, true, 170, '5 min'],
+  ['Brown Sugar Boba Milk Tea', 7, 'Black tea with warm tapioca pearls and caramelized sugar syrup.', true, false, true, 260, '5 min'],
+  ['Lemon Iced Tea', 5, 'Brisk iced tea with fresh lemon and a light sugar edge.', false, false, true, 70, '3 min'],
+  ['Lychee Green Tea', 6, 'Chilled green tea with lychee nectar and mint.', false, false, true, 85, '3 min'],
+  ['Yuanyang', 6, 'Hong Kong coffee-tea blend with condensed milk richness.', false, false, true, 190, '5 min'],
+  ['Warm Soy Milk', 4, 'Fresh soy milk lightly sweetened and served hot.', false, false, true, 120, '4 min'],
+  ['Osmanthus Oolong Spritz', 6, 'Sparkling oolong drink with osmanthus syrup and citrus.', false, false, true, 90, '3 min'],
+  ['Ginger Honey Tea', 5, 'Warming black tea with ginger slices and honey.', false, false, true, 60, '4 min'],
+  ['Plum Soda', 5, 'Salted plum refresher with bubbles and citrus bite.', false, false, true, 55, '2 min'],
+  ['Almond Milk Tea', 6, 'Creamy almond-forward tea served warm or iced.', false, false, true, 180, '4 min'],
+  ['Wintermelon Tea', 5, 'Smooth caramel-toned herbal tea over ice.', false, false, true, 65, '3 min'],
+  ['Sparkling Yuzu Tea', 6, 'Bright yuzu preserve lifted with chilled soda water.', false, false, true, 75, '3 min']
 ] as const;
 
 const desserts = [
-  ['Gulab Jamun Duo', 7, 'Warm khoya dumplings soaked in cardamom syrup.', true, false, true, 280, '4 min'],
-  ['Rasmalai', 8, 'Soft paneer discs in chilled saffron milk with pistachio.', true, false, true, 260, '4 min'],
-  ['Gajar Halwa', 7, 'Slow-cooked carrot pudding with nuts and reduced milk.', false, false, true, 300, '5 min'],
-  ['Shahi Tukda', 8, 'Fried bread in rabri with saffron, nuts, and rose.', false, false, true, 340, '5 min'],
-  ['Phirni', 7, 'Silky ground rice pudding in a clay pot.', false, false, true, 220, '4 min'],
-  ['Kulfi Trio', 8, 'Mango, pistachio, and malai kulfi slices.', true, false, true, 250, '4 min'],
-  ['Jalebi Rabri', 8, 'Hot jalebi spirals with chilled thickened milk.', true, false, true, 360, '5 min'],
-  ['Payasam of the Day', 7, 'Rotating South Indian pudding finished with ghee-fried nuts.', false, false, true, 230, '4 min'],
-  ['Kesari Bath', 6, 'Semolina pudding with saffron, ghee, and cashews.', false, false, true, 240, '4 min'],
-  ['Mishti Doi', 7, 'Caramelized Bengali sweet yogurt served chilled.', false, false, true, 180, '3 min']
+  ['Mango Pomelo Sago', 8, 'Chilled mango cream with pomelo, sago pearls, and citrus lift.', true, false, true, 280, '5 min'],
+  ['Sesame Balls', 7, 'Fried glutinous rice balls filled with sweet lotus paste.', true, false, true, 260, '6 min'],
+  ['Egg Tart Pair', 6, 'Warm flaky tarts with silky custard centers.', true, false, true, 220, '5 min'],
+  ['Almond Tofu', 7, 'Silky almond jelly with seasonal fruit and syrup.', false, false, true, 180, '4 min'],
+  ['Black Sesame Mochi', 7, 'Chewy rice cakes with toasted black sesame filling.', false, false, true, 240, '5 min'],
+  ['Tofu Pudding', 6, 'Soft douhua with ginger syrup and brown sugar.', false, false, true, 170, '4 min'],
+  ['Coconut Red Bean Pudding', 7, 'Layered chilled pudding with adzuki bean sweetness.', false, false, true, 210, '4 min'],
+  ['Matcha Swiss Roll', 8, 'Soft sponge roll with matcha cream and red bean.', false, false, true, 260, '4 min']
 ] as const;
 
 const drinks = [
-  ['Sweet Lassi', 6, 'Chilled yogurt drink with cardamom and a frothy finish.', false, false, true, 190, '3 min'],
-  ['Salted Lassi', 6, 'Savory yogurt cooler with roasted cumin and mint.', false, false, true, 160, '3 min'],
-  ['Mango Lassi', 7, 'Classic mango-yogurt blend with saffron.', true, false, true, 230, '3 min'],
-  ['Jaljeera Cooler', 5, 'Tangy cumin-mint drink with lime and black salt.', false, true, true, 45, '2 min'],
-  ['Nimbu Soda', 5, 'Sparkling lemon soda sweet-salty Indian style.', false, false, true, 55, '2 min'],
-  ['Masala Buttermilk', 5, 'Cooling chaas with coriander, cumin, and green chili.', false, true, true, 70, '2 min'],
-  ['Rose Milk', 6, 'Chilled milk flavored with rose syrup and basil seeds.', false, false, true, 170, '3 min'],
-  ['Sugarcane Ginger Lime', 6, 'Fresh sugarcane juice brightened with ginger and lime.', false, false, true, 120, '3 min'],
-  ['Tender Coconut Water', 5, 'Naturally hydrating coconut water served cold.', false, false, true, 40, '1 min'],
-  ['Masala Soda', 5, 'Sparkling digestive soda with spice, citrus, and herbs.', false, true, true, 35, '2 min']
+  ['Mandarin Sparkler', 6, 'Citrus soda with mandarin syrup and orange peel.', false, false, true, 95, '2 min'],
+  ['Lychee Cooler', 6, 'Lychee, lime, and sparkling water over crushed ice.', true, false, true, 90, '2 min'],
+  ['Salted Plum Lemonade', 5, 'Sweet-tart lemonade sharpened with preserved plum.', false, false, true, 80, '2 min'],
+  ['House Iced Coffee', 5, 'Strong chilled coffee with a touch of condensed milk.', false, false, true, 110, '3 min'],
+  ['Passionfruit Soda', 6, 'Bright passionfruit fizz with mint.', false, false, true, 85, '2 min'],
+  ['Coconut Water Lime', 5, 'Cold coconut water with lime and basil seeds.', false, false, true, 45, '2 min'],
+  ['Peach Jasmine Fizz', 6, 'Sparkling jasmine tea with peach nectar.', false, false, true, 88, '2 min'],
+  ['Ginger Citrus Cooler', 5, 'Fresh ginger, lemon, and soda water for a sharp finish.', false, false, true, 60, '2 min']
 ] as const;
 
 type MenuRow = readonly [string, number, string, boolean, boolean, boolean, number, string];
@@ -235,29 +197,29 @@ function buildItems(
 }
 
 export const menuItems: MenuItem[] = [
-  ...buildItems(indianThali, 'Indian Thali', imageSet.indianThali, 1),
-  ...buildItems(southIndian, 'South Indian', imageSet.southIndian, 31),
-  ...buildItems(northIndian, 'North Indian', imageSet.northIndian, 61),
-  ...buildItems(tea, 'Tea', imageSet.tea, 91),
-  ...buildItems(desserts, 'Desserts', imageSet.desserts, 111),
-  ...buildItems(drinks, 'Drinks', imageSet.drinks, 121),
+  ...buildItems(dimSum, 'Dim Sum', imageSet.dimSum, 1),
+  ...buildItems(sichuan, 'Sichuan', imageSet.sichuan, 21),
+  ...buildItems(noodleHouse, 'Noodle House', imageSet.noodleHouse, 41),
+  ...buildItems(teaHouse, 'Tea House', imageSet.teaHouse, 61),
+  ...buildItems(desserts, 'Desserts', imageSet.desserts, 77),
+  ...buildItems(drinks, 'Drinks', imageSet.drinks, 85),
 ];
 
 export const categories: Array<MenuCategory | 'All'> = [
   'All',
-  'Indian Thali',
-  'South Indian',
-  'North Indian',
-  'Tea',
+  'Dim Sum',
+  'Sichuan',
+  'Noodle House',
+  'Tea House',
   'Desserts',
   'Drinks',
 ];
 
 export const categoryDescriptions: Record<MenuCategory, string> = {
-  'Indian Thali': 'Complete platters with regional curries, breads, rice, sides, and dessert built for generous Indian dining.',
-  'South Indian': 'Dosas, idlis, biryanis, appams, and deeply spiced favorites from Tamil Nadu, Kerala, Karnataka, Andhra, and Telangana.',
-  'North Indian': 'Creamy gravies, tandoor classics, breads, rice dishes, and street-style plates from the northern belt.',
-  Tea: 'Kulhad chai, kahwa, herbal brews, and filter coffee for proper Indian tea-time energy.',
-  Desserts: 'Classic Indian sweets from gulab jamun to phirni, kulfi, and regional puddings.',
-  Drinks: 'Lassi, chaas, soda, sugarcane coolers, and traditional refreshers to round out the meal.',
+  'Dim Sum': 'Steamed baskets, baked buns, crisp small plates, and cart-style brunch favorites built for sharing.',
+  Sichuan: 'Peppercorn heat, wok-fired classics, chili oil depth, and big mains for dinner energy.',
+  'Noodle House': 'Broth bowls, stir-fried noodles, congee, fried rice, and faster comfort-food staples.',
+  'Tea House': 'Traditional Chinese teas, milk tea, iced refreshers, and lighter drinks for slower browsing.',
+  Desserts: 'Custards, sesame sweets, mango desserts, and soft finishers that fit the new menu direction.',
+  Drinks: 'Coolers, sodas, coffee, and fruit-led refreshments to round out lunch, brunch, or dinner.',
 };

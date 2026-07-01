@@ -7,7 +7,7 @@ import { MenuCard } from '@/components/MenuCard';
 import { SectionIntro } from '@/components/SectionIntro';
 import { categories, categoryDescriptions, menuItems, type MenuCategory } from '@/data/menu';
 
-const categoryKeys: MenuCategory[] = ['Indian Thali', 'South Indian', 'North Indian', 'Tea', 'Desserts', 'Drinks'];
+const categoryKeys: MenuCategory[] = ['Dim Sum', 'Sichuan', 'Noodle House', 'Tea House', 'Desserts', 'Drinks'];
 
 export function MenuBrowser() {
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>('All');
@@ -27,10 +27,10 @@ export function MenuBrowser() {
         return acc;
       },
       {
-        'Indian Thali': 0,
-        'South Indian': 0,
-        'North Indian': 0,
-        Tea: 0,
+        'Dim Sum': 0,
+        Sichuan: 0,
+        'Noodle House': 0,
+        'Tea House': 0,
         Desserts: 0,
         Drinks: 0,
       }
@@ -38,15 +38,15 @@ export function MenuBrowser() {
   }, []);
 
   const activeDescription = activeCategory === 'All'
-    ? 'Browse the entire Indian menu across thalis, South Indian, North Indian, tea, desserts, and drinks.'
+    ? 'Browse the full Chinese menu across dim sum, Sichuan mains, noodle-house favorites, tea service, desserts, and drinks.'
     : categoryDescriptions[activeCategory];
 
   return (
     <main className="section-shell space-y-10">
       <SectionIntro
         eyebrow="Menu"
-        title="An actually loaded Indian menu, with categories that mean something."
-        description="Filter by regional sections and tea-house offerings so customers can find what they want fast, whether they came for a giant thali or a single cup of chai."
+        title="A Chinese menu with real structure instead of generic restaurant filler."
+        description="Filter by the sections guests actually care about so they can jump straight to dumplings, noodles, tea, or peppercorn-heavy mains."
       />
 
       <div className="card-surface p-6">

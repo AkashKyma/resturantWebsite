@@ -2,7 +2,7 @@
 
 ## Ticket
 
-- **AKA-82** — _its good But Feed data And create for indian_
+- **KYM-1** — _Remodeling the Website For Chinese cuisine_
 
 ## Scribe scope
 
@@ -12,15 +12,15 @@ No application source files were modified during the Scribe phase.
 
 ## Delivered implementation summary
 
-The implemented feature set turns the site into a more coherent Indian restaurant experience by expanding both the dataset and the page structure.
+The implemented feature set remodels the website from an Indian-cuisine restaurant concept into a Chinese-cuisine browsing experience while preserving the existing Next.js static-site structure.
 
 ### Core implementation themes
 
-- Large menu-feed expansion beyond the earlier baseline
-- Indian-first category modeling instead of generic restaurant buckets
-- Dedicated browse paths for high-intent sections
-- Stronger image coverage across all major menu areas
-- Homepage copy and site metadata updated to reflect the Indian positioning
+- Chinese restaurant rebrand and metadata refresh
+- Chinese-cuisine menu taxonomy and discovery flow
+- Dedicated regional or intent-based browse pages
+- Updated story, gallery, events, and contact framing
+- Preserved compatibility routes for older inbound links
 
 ## Data architecture
 
@@ -30,31 +30,15 @@ Primary menu content lives in:
 
 ### Menu model
 
-The dataset exports:
+The application continues to use local TypeScript menu data and shared presentation components.
 
-- `MenuCategory`
-- `MenuItem`
-- `menuItems`
-- `categories`
-- `categoryDescriptions`
+Observed implementation behavior:
 
-### Current category set
+- menu items are organized into Chinese-cuisine browsing sections
+- shared menu browsing still powers route-level category exploration
+- image-driven presentation remains part of the browsing experience
 
-- `Indian Thali`
-- `South Indian`
-- `North Indian`
-- `Tea`
-- `Desserts`
-- `Drinks`
-
-### Dataset behavior
-
-- Menu entries are assembled from category-specific row arrays
-- `buildItems(...)` converts structured tuples into normalized `MenuItem` objects
-- Images are assigned by category-specific image pools
-- The current dataset size is **130 items**
-
-## Page and route additions / refinements
+## Route and information architecture impact
 
 ### Homepage
 
@@ -64,52 +48,66 @@ File:
 
 Behavior:
 
-- Surfaces featured Indian dishes
-- Highlights expanded menu depth and stronger imagery
-- Adds clearer browse cards for:
-  - full menu
-  - Indian thalis
-  - South Indian
-  - tea house
+- repositions the restaurant around Chinese cuisine
+- promotes cuisine-specific browsing paths
+- aligns homepage messaging with the remodeled menu identity
 
-### Dedicated Indian pages
+### Dedicated cuisine pages
 
 Files:
 
-- `app/thalis/page.tsx`
-- `app/south-indian/page.tsx`
+- `app/dim-sum/page.tsx`
+- `app/sichuan/page.tsx`
+- `app/noodle-house/page.tsx`
 - `app/tea-house/page.tsx`
 
 Behavior:
 
-- `/thalis` focuses on signature and full thali selections
-- `/south-indian` emphasizes dosa, idli, appam, biryani, and tiffin depth
-- `/tea-house` separates chai / coffee browsing from dessert pairing
+- `/dim-sum` supports small plates and basket-style browsing
+- `/sichuan` highlights bold, spicy, peppercorn-forward dishes
+- `/noodle-house` focuses on broths, noodles, rice, and comfort-food staples
+- `/tea-house` groups drinks, lighter desserts, and complementary items
 
-### Supporting browse pages
+### Preserved compatibility routes
 
 Files:
 
-- `app/gallery/page.tsx`
-- `app/story/page.tsx`
+- `app/north-indian/page.tsx`
+- `app/south-indian/page.tsx`
+- `app/thalis/page.tsx`
 
 Behavior:
 
-- `gallery` now showcases Indian category coverage instead of sparse filler
-- `story` aligns brand framing with the Indian refresh and fuller menu identity
+- older cuisine-specific routes appear to be preserved so prior links still land on relevant Chinese-cuisine content instead of breaking
+
+### Supporting pages refreshed
+
+Files touched by implementation include:
+
+- `app/gallery/page.tsx`
+- `app/story/page.tsx`
+- `app/events/page.tsx`
+- `app/contact/page.tsx`
+
+Behavior:
+
+- supporting pages now reflect the Chinese-cuisine framing instead of the earlier Indian concept
 
 ## Shared component impact
 
 Files touched by implementation:
 
+- `components/HeroSection.tsx`
+- `components/ImageShowcase.tsx`
 - `components/MenuBrowser.tsx`
-- `components/MenuSection.tsx`
+- `components/Navbar.tsx`
+- `components/OccasionGrid.tsx`
 
 Observed behavior:
 
-- Menu browsing supports category filtering with category counts
-- Category descriptions provide more context for each menu segment
-- Section rendering stays reusable across the new Indian-specific pages
+- core shared UI was reused rather than replaced
+- navigation and browse affordances were updated to match the new cuisine IA
+- image-led discovery remains central to the experience
 
 ## Site metadata impact
 
@@ -119,26 +117,25 @@ File:
 
 Behavior:
 
-- Restaurant brand is positioned as **Saffron Thali House**
-- Stats and occasion cards now support the Indian-specific browse structure
-- Site copy now aligns with the larger menu, tea-house browsing, and thali-led positioning
+- brand metadata is now aligned with **Red Lantern House**
+- site-level copy and positioning now support a Chinese restaurant identity
 
 ## Release-readiness notes
 
 ### What appears ready
 
-- Menu dataset size exceeds the ticket minimum direction
-- Dedicated Indian browse pages are present
-- Image coverage is integrated into the data model
-- Homepage and supporting pages reflect the new IA and content direction
-- Documentation now matches the shipped scope
+- implementation commit for KYM-1 is present
+- Chinese-cuisine browsing routes are in place
+- supporting pages and brand metadata were updated
+- documentation now matches the remodeled scope
 
 ### What to verify in final review / deployment
 
-- Visual QA for remote image rendering in Next.js environments
-- Responsive layout checks on the new `/thalis`, `/south-indian`, and `/tea-house` pages
-- Sanity-check category totals on `/menu`
-- Confirm no stale copy remains referencing the older generic restaurant framing where not intended
+- visual QA across homepage and cuisine landing pages
+- responsive checks for `/dim-sum`, `/sichuan`, `/noodle-house`, and `/tea-house`
+- navigation sanity-check for preserved compatibility routes
+- remote image behavior in the deployment environment
+- final sweep for any stale Indian-cuisine copy in secondary content
 
 ## Files changed by Scribe
 
