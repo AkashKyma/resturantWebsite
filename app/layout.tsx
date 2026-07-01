@@ -5,9 +5,27 @@ import { Navbar } from '@/components/Navbar';
 import { restaurant } from '@/src/site';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(restaurant.siteUrl),
   title: `${restaurant.name} | Chinese Restaurant Website`,
   description: restaurant.tagline,
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
+    type: 'website',
+    url: restaurant.siteUrl,
+    title: restaurant.name,
+    description: restaurant.tagline,
+    siteName: restaurant.name,
+    images: [
+      {
+        url: restaurant.heroImage,
+        alt: restaurant.name,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
     title: restaurant.name,
     description: restaurant.tagline,
     images: [restaurant.heroImage],

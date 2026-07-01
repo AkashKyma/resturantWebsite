@@ -3,6 +3,7 @@ import { menuItems } from '@/data/menu';
 export const restaurant = {
   name: 'Red Lantern House',
   tagline: 'Regional Chinese cuisine, dim sum lunches, wok-fired dinners, and a menu designed for proper browsing.',
+  siteUrl: 'https://redlanternhouse.example.com',
   address: '88 Jade Market Street, San Francisco, CA 94108',
   phone: '+1 (415) 555-0188',
   email: 'hello@redlanternhouse.com',
